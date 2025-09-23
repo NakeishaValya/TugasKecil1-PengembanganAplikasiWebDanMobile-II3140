@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Nama Webnya Apaaaaaaaa YA</title>
+    <!--=============== CSS ===============--> 
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">Logo</h2>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="materi.html">Materi</a>
+            <a href="jadwal.html" class="active">Jadwal</a>
+            <a href="#">Latman</a>
+        </nav>
+    </header>
+
+    <!-- Info Box Section -->
+    <section class="info-box-container">
+        <div class="left-boxes">
+            <div class="current-time-box">
+                <div class="time-display">
+                    <div id="current-time">--:--:--</div>
+                    <div id="current-date">-- -- ----</div>
+                </div>
+            </div>
+            
+            <div class="stats-summary-box">
+                <div class="stats-header">
+                    <h3>📊 Ringkasan Hari Ini</h3>
+                </div>
+                <div class="stats-content">
+                    <div class="stat-item-small">
+                        <span class="stat-icon">📚</span>
+                        <div class="stat-info">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Materi</div>
+                        </div>
+                    </div>
+                    <div class="stat-item-small">
+                        <span class="stat-icon">📝</span>
+                        <div class="stat-info">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Ujian</div>
+                        </div>
+                    </div>
+                    <div class="stat-item-small">
+                        <span class="stat-icon">💪</span>
+                        <div class="stat-info">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Tes Fisik</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <section class="personal-info-box">
+            <div class="info-header">
+                <h3>📚 Informasi Jadwal</h3>
+            </div>
+            <div class="info-content">
+                <div class="info-item">
+                    <span class="info-label">📅 Hari:</span>
+                    <span class="info-value">Senin - Jumat</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">🕐 Jam:</span>
+                    <span class="info-value">07:00 - 17:30</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">👤 Nama:</span>
+                    <span class="info-value">Nakeisha Valya</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">🎓 Kelas:</span>
+                    <span class="info-value">K02</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">👨‍🏫 Dosen:</span>
+                    <span class="info-value">Dr. Ahmad Santoso, M.Kom</span>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <div class="container">
+        <div id="timeline">
+            <section class="category-section" data-category="materi">
+                <div class="category-timeline"></div>
+            </section>
+            
+            <section class="category-section" data-category="ujian">
+                <div class="category-timeline"></div>
+            </section>
+            
+            <section class="category-section" data-category="tes-fisik">
+                <div class="category-timeline"></div>
+            </section>
+        </div>
+    </div>
+
+    
+    <!--=============== JAVASCRIPT ===============--> 
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/jadwal.js"></script>
+</body>
+
+</html>
