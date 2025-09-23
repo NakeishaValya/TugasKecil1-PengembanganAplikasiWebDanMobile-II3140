@@ -1,3 +1,8 @@
+let cloud_left = document.getElementById('cloud_left');
+let cloud_right = document.getElementById('cloud_right');
+let cloud_right2 = document.getElementById('cloud_left2');
+let cloud = document.getElementById('cloud');
+
 const materiData = [
     {
         icon: "📚",
@@ -69,6 +74,30 @@ const themes = {
         gradient: 'linear-gradient(135deg, #343a40, #1d2124)'
     }
 };
+
+window.addEventListener('scroll', () => {
+    let scrollY = window.scrollY;
+    let windowHeight = window.innerHeight;
+    let documentHeight = document.documentElement.scrollHeight;
+    
+    cloud_left.style.transform = `translateY(${scrollY * -1}px)`;
+    cloud_right.style.transform = `translateY(${scrollY * -1}px)`;
+    cloud_left2.style.transform = `translateY(${scrollY * -1}px)`;
+    cloud.style.transform = `translateY(${scrollY * -1}px)`;
+    
+    let scrollPercentage = (scrollY / (documentHeight - windowHeight)) * 100;
+    
+    if (cloud) {
+        if (scrollPercentage > 70) {
+            let opacity = Math.min((scrollPercentage - 70) / 30, 1);
+            cloud.style.opacity = opacity;
+            cloud.style.transform = `translateY(${(1 - opacity) * 50}px)`;
+        } else {
+            cloud.style.opacity = '0';
+            cloud.style.transform = 'translateY(50px)';
+        }
+    }
+});
 
 function generateCardHTML(data) {
     return `

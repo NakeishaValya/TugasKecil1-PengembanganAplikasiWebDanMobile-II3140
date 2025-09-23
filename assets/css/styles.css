@@ -33,7 +33,6 @@ header {
 
 header.scrolled {
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
     padding: 15px 100px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
@@ -85,7 +84,41 @@ header.scrolled .logo {
     width: 100%;
     pointer-events: none;
     border-color: 7px;
+}
 
+.cloud img {
+    position: absolute;
+    width: 20%;
+    pointer-events: none;
+    border-color: 7px;
+    z-index: 20;
+}
+
+#cloud_left {
+    left: 0;
+    top: 50vh;
+}
+
+#cloud_right {
+    right: 0;
+    top: 70vh;
+}
+
+#cloud_left2 {
+    left: -120px;
+    top: 100vh;
+}
+
+#cloud {
+    position: fixed;
+    pointer-events: none;
+    bottom: 0;    
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    z-index: 10;
 }
 
 #textCore {
@@ -146,7 +179,6 @@ header.scrolled .logo {
     border: 2px solid #26445d;
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
 }
 
 .grid-header h2 {
@@ -165,7 +197,6 @@ header.scrolled .logo {
     border: 2px solid #26445d;
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(3px);
 }
 
 .card-item {
