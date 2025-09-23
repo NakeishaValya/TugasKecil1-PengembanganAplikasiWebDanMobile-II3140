@@ -8,7 +8,7 @@ let run = document.getElementById('run');
 
 window.addEventListener('scroll', () => {
     let value = window.scrollY;    
-    let maxScroll = window.innerHeight; // Batasi efek parallax hanya pada viewport pertama (section parallax)
+    let maxScroll = window.innerHeight; 
     
     if (value <= maxScroll) {
         textCore.style.transform = `translateY(${value * 0.5}px)`;
