@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title>Nama Webnya Apaaaaaaaa YA</title>
     <!--=============== CSS ===============--> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
@@ -26,14 +27,67 @@
     </section>
 
     <section class="card-grid">
-        <div class="container">
+        <div class="materi-container">
 
             <div class="grid-header">
-                <h2>Pilih Materi Pembelajaran</h2>
+                <h1><i class="fas fa-book"></i>Pilih Materi Pembelajaran</h1>
+                <p>Materi Pembelajaran Dapat Dipelajari dengan materi dibawah</p>
             </div>
             
             <div class="grid-container">
-                <!-- Cards akan di-generate oleh JavaScript -->
+                <div class="card-item" data-title="Materi 01" data-theme="primary">
+                    <div class="card-icon">📚</div>
+                    <h3>Materi 01</h3>
+                    <p>Pendahuluan dan Aspek dalam Olahraga</p>
+                    <div class="card-overlay">
+                        <button class="card-btn">Pelajari Lebih Lanjut</button>
+                    </div>
+                </div>
+
+                <div class="card-item" data-title="Materi 02" data-theme="success">
+                    <div class="card-icon">🎯</div>
+                    <h3>Materi 02</h3>
+                    <p>Komponen dan Prinsip Latihan Berolahraga</p>
+                    <div class="card-overlay">
+                        <button class="card-btn">Pelajari Lebih Lanjut</button>
+                    </div>
+                </div>
+
+                <div class="card-item" data-title="Materi 03" data-theme="warning">
+                    <div class="card-icon">💡</div>
+                    <h3>Materi 03</h3>
+                    <p>Mengenali Kondisi Fisik dalam Berolahraga</p>
+                    <div class="card-overlay">
+                        <button class="card-btn">Pelajari Lebih Lanjut</button>
+                    </div>
+                </div>
+
+                <div class="card-item" data-title="Materi 04" data-theme="info">
+                    <div class="card-icon">🔬</div>
+                    <h3>Materi 04</h3>
+                    <p>Metode Pengetesan dalam mata kuliah Olahraga</p>
+                    <div class="card-overlay">
+                        <button class="card-btn">Pelajari Lebih Lanjut</button>
+                    </div>
+                </div>
+
+                <div class="card-item" data-title="Materi 05" data-theme="danger">
+                    <div class="card-icon">🎨</div>
+                    <h3>Materi 05</h3>
+                    <p>Bentuk Cedera dalam Berolahraga</p>
+                    <div class="card-overlay">
+                        <button class="card-btn">Pelajari Lebih Lanjut</button>
+                    </div>
+                </div>
+
+                <div class="card-item" data-title="Materi 06" data-theme="dark">
+                    <div class="card-icon">🚀</div>
+                    <h3>Materi 06</h3>
+                    <p>Macam-macam Cabang Olahraga</p>
+                    <div class="card-overlay">
+                        <button class="card-btn">Pelajari Lebih Lanjut</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -45,18 +99,6 @@
         <img src="../assets/images/materi/cloud.png" id="cloud">
     </section>
 
-    <!--===============  ==============
-    <main class="materi-content">
-        <div class="container">
-            <h1>Materi Pembelajaran</h1>
-            <p>Halaman ini akan berisi materi-materi pembelajaran.</p>
-            <div class="content-placeholder">
-                <h2>Coming Soon...</h2>
-                <p>Konten materi sedang dalam pengembangan.</p>
-            </div>
-        </div>
-    </main> --> 
-    
     <!--=============== JAVASCRIPT ===============--> 
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/materi.js"></script>

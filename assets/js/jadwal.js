@@ -1,4 +1,3 @@
-// Data jadwal pembelajaran yang disederhanakan
 const scheduleData = {
     materi: [
         {
@@ -82,16 +81,13 @@ const scheduleData = {
     ]
 };
 
-// Fungsi sederhana untuk generate timeline
 function generateTimeline() {
-    // Loop melalui setiap kategori
     Object.keys(scheduleData).forEach(category => {
         const categorySection = document.querySelector(`[data-category="${category}"]`);
         const timeline = categorySection?.querySelector('.category-timeline');
         
         if (!timeline) return;
         
-        // Generate items untuk kategori ini
         scheduleData[category].forEach(item => {
             const timelineItem = document.createElement('div');
             timelineItem.className = 'timeline-item';
@@ -112,7 +108,6 @@ function generateTimeline() {
     });
 }
 
-// Filter sederhana
 function initCategoryFilter() {
     const filterContainer = document.createElement('div');
     filterContainer.className = 'filter-container';
@@ -127,22 +122,18 @@ function initCategoryFilter() {
     const timeline = document.getElementById('timeline');
     timeline.parentNode.insertBefore(filterContainer, timeline);
     
-    // Event listener untuk filter
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const filter = e.target.getAttribute('data-filter');
             
-            // Update active button
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
-            
-            // Filter sections
+
             document.querySelectorAll('.category-section').forEach(section => {
                 const category = section.getAttribute('data-category');
                 
                 if (category === filter) {
                     section.style.display = 'block';
-                    // Re-trigger animations for visible items
                     setTimeout(() => {
                         section.querySelectorAll('.timeline-item').forEach(item => {
                             item.classList.remove('animate');
@@ -157,7 +148,6 @@ function initCategoryFilter() {
     });
 }
 
-// Modal sederhana
 function showDetailModal(title, description, location, time) {
     let modal = document.getElementById('schedule-modal');
     if (!modal) {
@@ -200,7 +190,6 @@ function closeModal() {
     }
 }
 
-// Function to animate timeline items on scroll
 function animateOnScroll() {
     const timelineItems = document.querySelectorAll('.timeline-item');
     
@@ -220,11 +209,8 @@ function animateOnScroll() {
     });
 }
 
-// Function to update current time
 function updateCurrentTime() {
     const now = new Date();
-    
-    // Format time (HH:MM:SS)
     const timeOptions = {
         hour: '2-digit',
         minute: '2-digit',
@@ -232,8 +218,6 @@ function updateCurrentTime() {
         hour12: false
     };
     const timeString = now.toLocaleTimeString('id-ID', timeOptions);
-    
-    // Format date (Day, DD Month YYYY)
     const dateOptions = {
         weekday: 'long',
         day: 'numeric',
@@ -241,21 +225,15 @@ function updateCurrentTime() {
         year: 'numeric'
     };
     const dateString = now.toLocaleDateString('id-ID', dateOptions);
-    
-    // Update DOM
     const timeElement = document.getElementById('current-time');
     const dateElement = document.getElementById('current-date');
-    
     if (timeElement) timeElement.textContent = timeString;
     if (dateElement) dateElement.textContent = dateString;
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     generateTimeline();
     initCategoryFilter();
-    
-    // Hide non-materi sections by default since "Materi" button is active
     document.querySelectorAll('.category-section').forEach(section => {
         const category = section.getAttribute('data-category');
         if (category !== 'materi') {
@@ -263,14 +241,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Initialize scroll animations
     animateOnScroll();
-    
-    // Initialize and update time
     updateCurrentTime();
-    setInterval(updateCurrentTime, 1000); // Update every second
-    
-    document.body.classList.add('jadwal-page');
+    setInterval(updateCurrentTime, 1000); 
     
     console.log('📅 Jadwal page initialized!');
 });
