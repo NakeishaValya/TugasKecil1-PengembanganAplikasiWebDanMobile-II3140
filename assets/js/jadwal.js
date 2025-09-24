@@ -2,69 +2,83 @@
 const scheduleData = {
     materi: [
         {
-            time: "08:00 - 10:00",
-            title: "Matematika Dasar",
-            description: "Pembelajaran konsep dasar matematika meliputi aljabar, geometri, dan statistik. Materi yang dipelajari akan membangun fondasi yang kuat untuk mata pelajaran lanjutan."
+            time: "15 Agustus 2025",
+            title: "Materi 01",
+            location: "Lapangan Bola Jatinangor",
+            description: "Membahas Materi 01 dengan implementasi latihan"
         },
         {
-            time: "10:30 - 12:00",
-            title: "Bahasa Indonesia",
-            description: "Memahami tata bahasa, menulis karya ilmiah, dan menganalisis teks sastra Indonesia. Fokus pada peningkatan kemampuan komunikasi tertulis dan lisan."
+            time: "22 Agustus 2025",
+            title: "Materi 02",
+            location: "Lapangan Basket Jatinangor",
+            description: "Membahas Materi 02 dengan implementasi latihan"
         },
         {
-            time: "13:00 - 15:00",
-            title: "Fisika Eksperimen",
-            description: "Praktikum laboratorium fisika dengan eksperimen langsung. Memahami konsep fisika melalui pengamatan dan percobaan ilmiah."
+            time: "29 Agustus 2025",
+            title: "Materi 02",
+            location: "Lapangan Basket Jatinangor",
+            description: "Membahas Materi 02 dengan implementasi latihan"
         },
         {
-            time: "15:30 - 17:00",
-            title: "Sejarah Indonesia",
-            description: "Mempelajari perjuangan kemerdekaan Indonesia, tokoh-tokoh pahlawan, dan perkembangan bangsa dari masa ke masa."
+            time: "5 Desember 2025",
+            title: "Materi 04",
+            location: "GYM Jatinangor",
+            description: "Membahas Materi 04 dengan implementasi latihan"
         }
     ],
     ujian: [
         {
-            time: "08:00 - 10:00",
-            title: "Ujian Tengah Semester Matematika",
-            description: "Evaluasi pemahaman materi matematika semester ini meliputi aljabar, kalkulus, dan statistik dasar. Ujian tertulis dengan soal pilihan ganda dan essay."
+            time: "5 September 2025",
+            title: "Quiz 01",
+            location: "Ruang Ujian A101",
+            description: "Evaluasi pemahaman materi 2 dengan latihan"
         },
         {
-            time: "10:30 - 12:30",
-            title: "Ujian Praktik Bahasa Inggris",
-            description: "Tes kemampuan speaking dan listening dalam bahasa Inggris. Evaluasi pronunciation, vocabulary, dan conversation skills."
+            time: "10 Oktober 2025",
+            title: "Ujian Tengah Semester",
+            location: "Lapangan Olahraga",
+            description: "Ujian tengah semester untuk mengevaluasi pemahaman materi 1-3"
         },
         {
-            time: "13:00 - 15:00",
-            title: "Ujian Akhir Semester Fisika",
-            description: "Ujian komprehensif materi fisika satu semester penuh. Mencakup teori, rumus, dan aplikasi dalam kehidupan sehari-hari."
+            time: "10 Oktober 2025",
+            title: "Quiz 02",
+            location: "Lapangan Olahraga",
+            description: "Evaluasi pemahaman materi 6 dengan latihan"
         },
         {
-            time: "15:30 - 17:30",
-            title: "Ujian Nasional Simulasi",
-            description: "Simulasi ujian nasional dengan format dan tingkat kesulitan yang sama. Persiapan menghadapi ujian sesungguhnya."
+            time: "15 November 2025",
+            title: "Ujian Akhir Semester",
+            location: "Ruang Ujian B202",
+            description: "Ujian akhir semester untuk evaluasi komprehensif seluruh materi"
         }
+        
     ],
     "tes-fisik": [
         {
-            time: "07:00 - 08:00",
-            title: "Tes Kesehatan Rutin",
-            description: "Pemeriksaan kesehatan berkala meliputi pengukuran tinggi badan, berat badan, tekanan darah, dan pemeriksaan umum lainnya."
+            time: "20 Agustus 2025",
+            title: "Tes Kebugaran Awal",
+            location: "Lapangan Atletik",
+            description: "Tes kebugaran awal untuk mengukur kondisi fisik dasar mahasiswa"
         },
         {
-            time: "16:00 - 17:30",
-            title: "Tes Kebugaran Jasmani",
-            description: "Evaluasi kondisi fisik siswa melalui berbagai tes seperti lari 1000m, push-up, sit-up, dan tes fleksibilitas tubuh."
+            time: "25 September 2025",
+            title: "Endurance Training Test",
+            location: "Track Lari Jatinangor",
+            description: "Tes lari 12 menit untuk mengukur daya tahan kardiovaskular"
         },
         {
-            time: "07:30 - 09:00",
-            title: "Tes Koordinasi Motorik",
-            description: "Pengujian kemampuan koordinasi gerak tubuh, keseimbangan, dan refleks. Penting untuk perkembangan motorik siswa."
+            time: "20 Agustus 2025",
+            title: "Interval",
+            location: "Lapangan Atletik",
+            description: "Tes kebugaran awal untuk mengukur kondisi fisik dasar mahasiswa"
         },
         {
-            time: "15:00 - 16:00",
-            title: "Screening Kesehatan Mental",
-            description: "Evaluasi kesehatan mental dan psikologis siswa. Deteksi dini masalah stress, kecemasan, atau masalah emosional lainnya."
+            time: "25 September 2025",
+            title: "Strength Training Test",
+            location: "Track Lari Jatinangor",
+            description: "Tes lari 12 menit untuk mengukur daya tahan kardiovaskular"
         }
+
     ]
 };
 
@@ -88,8 +102,9 @@ function generateTimeline() {
                 <div class="timeline-content">
                     <div class="timeline-time">${item.time}</div>
                     <h2>${item.title}</h2>
+                    <p><strong>${item.location}</strong></p>
                     <p>${item.description}</p>
-                    <a href="#" class="btn" onclick="showDetailModal('${item.title}', '${item.description}', '${item.time}')">Detail</a>
+                    <a href="#" class="btn" onclick="showDetailModal('${item.title}', '${item.description}', '${item.location}', '${item.time}')">Detail</a>
                 </div>
             `;
             timeline.appendChild(timelineItem);
@@ -143,7 +158,7 @@ function initCategoryFilter() {
 }
 
 // Modal sederhana
-function showDetailModal(title, description, time) {
+function showDetailModal(title, description, location, time) {
     let modal = document.getElementById('schedule-modal');
     if (!modal) {
         modal = document.createElement('div');
@@ -169,7 +184,11 @@ function showDetailModal(title, description, time) {
     
     document.getElementById('modal-title').textContent = title;
     document.getElementById('modal-time').textContent = time;
-    document.getElementById('modal-description').textContent = description;
+    document.getElementById('modal-description').innerHTML = `
+        <p><strong>${location}</strong></p>
+        <p>${description}</p>
+    `;
+    
     
     modal.style.display = 'flex';
 }
