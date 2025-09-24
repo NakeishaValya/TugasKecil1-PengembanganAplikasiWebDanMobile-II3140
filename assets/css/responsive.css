@@ -1,0 +1,296 @@
+@media (max-width: 768px) {
+    header,
+    header.scrolled {
+        padding: 20px;
+    }
+    header.scrolled {
+        padding: 10px 20px;
+    }
+    
+    .parallax_landingPage {
+        padding-top: 80px;
+    }
+    #textCore {
+        font-size: 3em;
+    }
+    
+    .deskripsi {
+        padding: 50px 20px;
+    }
+    
+    .card-grid {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-top: -10vh;
+        padding: 30px 15px;
+        max-width: none;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid #26445d;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(38, 68, 93, 0.2);
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 30px; 
+        padding: 30px 20px; 
+        border-width: 1px;
+        border-radius: 10px;
+    }
+    
+    .card-item {
+        padding: 30px 40px;
+        min-height: 280px;
+        aspect-ratio: 1.05/1;
+    }
+    
+    .card-icon {
+        font-size: 2.8em;
+        margin-bottom: 18px;
+    }
+    
+    .card-item h3 {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+    }
+    
+    .card-item p {
+        font-size: 0.95em;
+        margin-bottom: 20px;
+        max-width: 95%;
+    }
+    
+    .card-overlay {
+        position: static !important;
+        background: none !important;
+        padding: 8px 0 0 0;
+    }
+    
+    .card-btn {
+        padding: 8px 25px;
+        font-size: 0.85em;
+        min-width: 140px;
+    }
+    
+    .grid-header {
+        padding: 30px 20px;
+        margin-bottom: 25px;
+        border-radius: 15px;
+    }
+    
+    .grid-header h2 {
+        font-size: 2em;
+        margin-bottom: 12px;
+    }
+    
+    .grid-header p {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+    
+    #timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        justify-content: flex-start !important;
+        margin-left: 60px;
+    }
+    
+    .timeline-icon {
+        left: 30px;
+        transform: translateX(-50%);
+    }
+    
+    .timeline-content {
+        width: calc(100% - 60px);
+    }
+    
+    .timeline-content::before {
+        left: -32px !important;
+        right: auto !important;
+        border-right-color: #26445d !important;
+        border-left-color: transparent !important;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content {
+        text-align: left;
+    }
+    
+    .jadwal-container {
+        padding: 60px 15px 30px;
+    }
+    
+    .category-timeline::before {
+        left: 30px;
+    }
+    
+    .info-box-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 80px auto 20px;
+        padding: 0 15px;
+    }
+    
+    .left-boxes {
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    .current-time-box,
+    .stats-summary-box {
+        flex: 1;
+        padding: 15px;
+    }
+    
+    .personal-info-box {
+        padding: 20px;
+    }
+    
+    .time-display #current-time {
+        font-size: 1.8em;
+    }
+    
+    .time-display #current-date {
+        font-size: 0.8em;
+    }
+    
+    .stats-header h3 {
+        font-size: 1em;
+    }
+    
+    .stats-content {
+        gap: 8px;
+    }
+    
+    .stat-item-small {
+        padding: 8px 10px;
+        gap: 10px;
+    }
+    
+    .stat-number {
+        font-size: 1.2em;
+    }
+    
+    .stat-label {
+        font-size: 0.75em;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        text-align: left;
+    }
+    
+    .info-value {
+        text-align: left;
+    }
+}
+
+@media (max-width: 1024px) {
+    .latman-content {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "calendar"
+            "progress"
+            "info";
+    }
+    
+    .progress-stats {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .stat-card {
+        flex: 1;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .latman-container {
+        padding: 80px 15px 20px;
+    }
+    
+    .latman-header {
+        padding: 25px;
+    }
+    
+    .latman-header h1 {
+        font-size: 2em;
+    }
+    
+    .header-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .add-workout-btn,
+    .add-fitness-test-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .calendar-section,
+    .progress-section,
+    .form-section {
+        padding: 20px;
+    }
+    
+    .form-section {
+        margin-bottom: 20px;
+    }
+    
+    .weekday {
+        padding: 10px 5px;
+        font-size: 0.8em;
+    }
+    
+    .days {
+        gap: 5px;
+    }
+    
+    .day {
+        font-size: 0.9em;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .progress-stats {
+        flex-direction: column;
+    }
+    
+    .stat-card {
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    .form-section h4 {
+        font-size: 1em;
+    }
+    
+    .workout-modal,
+    .fitness-test-modal {
+        width: 95%;
+        max-width: 95vw;
+        max-height: 85vh;
+        overflow: visible;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}

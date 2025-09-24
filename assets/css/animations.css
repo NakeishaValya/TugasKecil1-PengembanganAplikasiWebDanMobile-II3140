@@ -1,0 +1,49 @@
+@keyframes pulse-glow {
+    0% {box-shadow: 0 8px 25px rgba(38, 68, 93, 0.3);}
+    100% {box-shadow: 0 12px 35px rgba(38, 68, 93, 0.5);}
+}
+
+@keyframes cardFadeIn {
+    0% {opacity: 0; transform: translateY(30px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes ripple {
+    to {transform: scale(4); opacity: 0;}
+}
+
+@keyframes iconFloat {
+    0%, 100% {transform: translateY(0px) rotate(0deg);}
+    25% {transform: translateY(-8px) rotate(2deg);}
+    50% {transform: translateY(-12px) rotate(0deg);}
+    75% {transform: translateY(-8px) rotate(-2deg);}
+}
+
+@keyframes iconPulse {
+    0%, 100% {transform: scale(1); filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));}
+    50% {transform: scale(1.1); filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.25));}
+}
+
+@keyframes iconBounce {
+    0%, 100% {transform: translateY(0px) scale(1);}
+    50% {transform: translateY(-10px) scale(1.05);}
+}
+
+@keyframes iconSway {
+    0%, 100% {transform: rotate(-5deg) translateX(0px);}
+    25% {transform: rotate(3deg) translateX(3px);}
+    50% {transform: rotate(5deg) translateX(0px);}
+    75% {transform: rotate(-3deg) translateX(-3px);}
+}
+
+@keyframes iconGlow {
+    0%, 100% {transform: scale(1); text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);}
+    50% {transform: scale(1.08); text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);}
+}
+
+@keyframes iconWobble {
+    0%, 100% {transform: rotate(0deg) scale(1);}
+    25% {transform: rotate(5deg) scale(1.02);}
+    50% {transform: rotate(0deg) scale(1.05);}
+    75% {transform: rotate(-5deg) scale(1.02);}
+}
