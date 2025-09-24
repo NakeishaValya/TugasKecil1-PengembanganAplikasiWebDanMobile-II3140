@@ -389,11 +389,6 @@ header.scrolled .logo {
     background: rgba(255, 255, 255, 0.3);
 }
 
-.card-item {
-    position: relative;
-    overflow: hidden;
-}
-
 .container {
     max-width: 1550px;
     margin: 0 auto;
@@ -680,17 +675,6 @@ header.scrolled .logo {
     opacity: 0.5;
 }
 
-@keyframes cardFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @media (max-width: 768px) {
     header,
     header.scrolled {
@@ -784,10 +768,6 @@ header.scrolled .logo {
         text-align: left;
     }
     
-    .container-timeline {
-        padding: 80px 20px;
-    }
-    
     .jadwal-page .container {
         padding: 60px 15px 30px;
     }
@@ -859,10 +839,6 @@ header.scrolled .logo {
     .info-value {
         text-align: left;
     }
-    
-    .timeline-type {
-        font-size: 0.7em;
-    }
 }
 
 /* =============== LATMAN (LATIHAN MANDIRI) STYLES =============== */
@@ -902,8 +878,15 @@ body.latman-page {
     opacity: 0.9;
 }
 
-.add-workout-btn {
-    background: linear-gradient(135deg, #26445d, #4a6fa5);
+.header-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.add-workout-btn,
+.add-fitness-test-btn {
     color: white;
     border: none;
     padding: 15px 30px;
@@ -915,12 +898,29 @@ body.latman-page {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+}
+
+.add-workout-btn {
+    background: linear-gradient(135deg, #26445d, #4a6fa5);
     box-shadow: 0 5px 20px rgba(38, 68, 93, 0.3);
 }
 
-.add-workout-btn:hover {
+.add-fitness-test-btn {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.3);
+}
+
+.add-workout-btn:hover,
+.add-fitness-test-btn:hover {
     transform: translateY(-3px);
+}
+
+.add-workout-btn:hover {
     box-shadow: 0 8px 30px rgba(38, 68, 93, 0.4);
+}
+
+.add-fitness-test-btn:hover {
+    box-shadow: 0 8px 30px rgba(231, 76, 60, 0.4);
 }
 
 /* Main Content Grid */
@@ -937,12 +937,6 @@ body.latman-page {
 /* Calendar Section */
 .calendar-section {
     grid-area: calendar;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .calendar-nav {
@@ -1067,12 +1061,7 @@ body.latman-page {
 /* Progress Section */
 .progress-section {
     grid-area: progress;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
     padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .progress-header {
@@ -1169,13 +1158,22 @@ body.latman-page {
 }
 
 .today-summary,
-.streak-info {
+.streak-info,
+.calendar-section,
+.progress-section {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.calendar-section,
+.progress-section {
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .today-summary h3,
@@ -1235,9 +1233,12 @@ body.latman-page {
 }
 
 /* Modal Styles */
-.workout-modal {
-    max-width: 600px;
+.workout-modal,
+.fitness-test-modal {
+    max-width: 800px;
     width: 90%;
+    max-height: 85vh;
+    overflow: visible;
 }
 
 .modal-header {
@@ -1274,6 +1275,13 @@ body.latman-page {
 
 .modal-close:hover {
     background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-body {
+    padding: 0 5px;
+    max-height: calc(85vh - 140px);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .form-row {
@@ -1319,6 +1327,69 @@ body.latman-page {
     resize: vertical;
     min-height: 100px;
     grid-column: 1 / -1;
+}
+
+.form-group input[type="file"] {
+    padding: 10px;
+    border: 2px dashed #e0e0e0;
+    border-radius: 10px;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="file"]:hover {
+    border-color: #26445d;
+    background: #f0f4f8;
+}
+
+.form-help {
+    color: #666;
+    font-size: 0.8em;
+    margin-top: 5px;
+    display: block;
+}
+
+.form-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background: #f8f9fa;
+}
+
+.form-section h4 {
+    color: #26445d;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-section h4 i {
+    color: #4a6fa5;
+}
+
+.test-info {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9em;
+}
+
+.test-info i {
+    color: #2196f3;
+    margin-right: 5px;
+}
+
+input[readonly] {
+    background: #f0f0f0 !important;
+    cursor: not-allowed;
+    color: #666 !important;
 }
 
 .form-actions {
@@ -1402,9 +1473,27 @@ body.latman-page {
         font-size: 2em;
     }
     
+    .header-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .add-workout-btn,
+    .add-fitness-test-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
     .calendar-section,
-    .progress-section {
+    .progress-section,
+    .form-section {
         padding: 20px;
+    }
+    
+    .form-section {
+        margin-bottom: 20px;
     }
     
     .weekday {
@@ -1432,5 +1521,22 @@ body.latman-page {
     .stat-card {
         flex-direction: row;
         text-align: left;
+    }
+    
+    .form-section h4 {
+        font-size: 1em;
+    }
+    
+    .workout-modal,
+    .fitness-test-modal {
+        width: 95%;
+        max-width: 95vw;
+        max-height: 85vh;
+        overflow: visible;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }

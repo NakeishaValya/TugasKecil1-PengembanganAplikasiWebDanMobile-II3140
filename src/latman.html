@@ -26,12 +26,18 @@
     <div class="latman-container">
         <!-- Header Section -->
         <div class="latman-header">
-            <h1><i class="fas fa-dumbbell"></i> Latihan Mandiri</h1>
+            <h1><i class="fas fa-dumbbell"></i>Progress Report</h1>
             <p>Kelola jadwal latihan, track progress, dan capai target fitness Anda</p>
-            <button class="add-workout-btn" id="addWorkoutBtn">
-                <i class="fas fa-plus"></i>
-                Tambah Latihan Baru
-            </button>
+            <div class="header-buttons">
+                <button class="add-workout-btn" id="addWorkoutBtn">
+                    <i class="fas fa-plus"></i>
+                    Tambah Latihan Baru
+                </button>
+                <button class="add-fitness-test-btn" id="addFitnessTestBtn">
+                    <i class="fas fa-heartbeat"></i>
+                    Masukkan Hasil Tes Fisik
+                </button>
+            </div>
         </div>
 
         <!-- Main Content Grid -->
@@ -72,7 +78,7 @@
             <div class="progress-section">
                 <div class="progress-wrapper">
                     <div class="progress-header">
-                        <h3><i class="fas fa-chart-line"></i> Progress Latihan</h3>
+                        <h3><i class="fas fa-chart-line"></i>Progress Latihan</h3>
                         <div class="progress-period">
                             <button class="period-btn active" data-period="week">Minggu</button>
                             <button class="period-btn" data-period="month">Bulan</button>
@@ -87,21 +93,21 @@
                             <i class="fas fa-fire"></i>
                             <div class="stat-info">
                                 <span class="stat-value">1,245</span>
-                                <span class="stat-label">Kalori Terbakar</span>
+                                <span class="stat-label">Latman Tersisa</span>
                             </div>
                         </div>
                         <div class="stat-card">
                             <i class="fas fa-clock"></i>
                             <div class="stat-info">
                                 <span class="stat-value">25.5</span>
-                                <span class="stat-label">Jam Latihan</span>
+                                <span class="stat-label">Rata-Rata Pace</span>
                             </div>
                         </div>
                         <div class="stat-card">
                             <i class="fas fa-trophy"></i>
                             <div class="stat-info">
                                 <span class="stat-value">12</span>
-                                <span class="stat-label">Target Tercapai</span>
+                                <span class="stat-label">Latman Selesai</span>
                             </div>
                         </div>
                     </div>
@@ -111,7 +117,7 @@
             <!-- Quick Info Section -->
             <div class="info-section">
                 <div class="today-summary">
-                    <h3><i class="fas fa-calendar-day"></i> Hari Ini</h3>
+                    <h3><i class="fas fa-calendar-day"></i> Tanggal Dipilih</h3>
                     <div class="today-date" id="todayDate">24 September 2024</div>
                     <div class="today-workout" id="todayWorkout">
                         <div class="workout-item">
@@ -144,56 +150,41 @@
                 <form id="workoutForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="workoutType">Jenis Latihan</label>
-                            <select id="workoutType" required>
-                                <option value="">Pilih Jenis Latihan</option>
-                                <option value="cardio">Kardio</option>
-                                <option value="strength">Kekuatan</option>
-                                <option value="flexibility">Fleksibilitas</option>
-                                <option value="hiit">HIIT</option>
-                                <option value="yoga">Yoga</option>
-                                <option value="running">Lari</option>
-                                <option value="cycling">Bersepeda</option>
-                                <option value="swimming">Renang</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="workoutDate">Tanggal</label>
                             <input type="date" id="workoutDate" required>
                         </div>
-                    </div>
-
-                    <div class="form-row">
                         <div class="form-group">
-                            <label for="workoutTime">Waktu Mulai</label>
-                            <input type="time" id="workoutTime" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="workoutDuration">Durasi (menit)</label>
-                            <input type="number" id="workoutDuration" placeholder="60" min="15" max="300" required>
+                            <label for="latmanSession">Latman Ke-</label>
+                            <input type="number" id="latmanSession" placeholder="1" min="1" max="20" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="workoutIntensity">Intensitas</label>
-                            <select id="workoutIntensity" required>
-                                <option value="">Pilih Intensitas</option>
-                                <option value="low">Rendah</option>
-                                <option value="moderate">Sedang</option>
-                                <option value="high">Tinggi</option>
-                                <option value="extreme">Sangat Tinggi</option>
-                            </select>
+                            <label for="distance">Distance (km)</label>
+                            <input type="number" id="distance" placeholder="5.0" step="0.1" min="0.1" required>
                         </div>
                         <div class="form-group">
-                            <label for="workoutCalories">Target Kalori</label>
-                            <input type="number" id="workoutCalories" placeholder="300" min="50" max="1000">
+                            <label for="pace">Pace (min/km)</label>
+                            <input type="text" id="pace" placeholder="5:30" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="timeMinutes">Time - Menit</label>
+                            <input type="number" id="timeMinutes" placeholder="25" min="0" max="180" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeSeconds">Time - Detik</label>
+                            <input type="number" id="timeSeconds" placeholder="30" min="0" max="59" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="workoutNotes">Catatan Latihan</label>
-                        <textarea id="workoutNotes" placeholder="Catatan tambahan, target spesifik, atau reminder..."></textarea>
+                        <label for="evidenceFile">Bukti Kegiatan</label>
+                        <input type="file" id="evidenceFile" accept="image/*,.pdf" required>
+                        <small class="form-help">Upload foto atau dokumen sebagai bukti latihan</small>
                     </div>
 
                     <div class="form-actions">
@@ -204,6 +195,235 @@
                         <button type="submit" class="btn-save">
                             <i class="fas fa-save"></i>
                             Simpan Latihan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Fitness Test Modal -->
+    <div class="modal-overlay" id="fitnessTestModal">
+        <div class="modal-content fitness-test-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-heartbeat"></i> Masukkan Hasil Tes Fisik</h3>
+                <button class="modal-close" id="closeFitnessTestModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <form id="fitnessTestForm">
+                    <!-- Personal Info Section (Read-only) -->
+                    <div class="form-section">
+                        <h4><i class="fas fa-user"></i> Informasi Personal</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="studentName">Nama</label>
+                                <input type="text" id="studentName" value="John Doe" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentNIM">NIM</label>
+                                <input type="text" id="studentNIM" value="13521001" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="studentAge">Usia</label>
+                                <input type="text" id="studentAge" value="20 tahun" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="chestNumber">No Dada</label>
+                                <input type="text" id="chestNumber" placeholder="001" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Test Info Section -->
+                    <div class="form-section">
+                        <h4><i class="fas fa-clipboard-list"></i> Informasi Tes</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="recorderNIM">NIM Pencatat</label>
+                                <input type="text" id="recorderNIM" placeholder="13521002" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="testDate">Tanggal</label>
+                                <input type="date" id="testDate" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="testType">Jenis Tes</label>
+                                <select id="testType" required onchange="toggleTestSections()">
+                                    <option value="">Pilih Jenis Tes</option>
+                                    <option value="kebugaran-awal">Tes Kebugaran Awal</option>
+                                    <option value="endurance-training">Endurance Training Test</option>
+                                    <option value="strength-training">Strength Training Test</option>
+                                    <option value="interval">Interval</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Physical Measurements Section -->
+                    <div class="form-section">
+                        <h4><i class="fas fa-ruler"></i> Pengukuran Fisik</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="height">Tinggi Badan (cm)</label>
+                                <input type="number" id="height" placeholder="170" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="weight">Berat Badan (kg)</label>
+                                <input type="number" id="weight" placeholder="65" step="0.1" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sleepDuration">Berapa Lama Tidur (jam)</label>
+                                <input type="number" id="sleepDuration" placeholder="8" step="0.5" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastMealTime">Waktu Makan Sebelum Tes</label>
+                                <input type="time" id="lastMealTime" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="initialHeartRate">Denyut Jantung Awal (bpm)</label>
+                                <input type="number" id="initialHeartRate" placeholder="70" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="finalHeartRate">Denyut Jantung Akhir (bpm)</label>
+                                <input type="number" id="finalHeartRate" placeholder="120" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="rpeScore">RPE Setelah Tes (0-10)</label>
+                                <select id="rpeScore" required>
+                                    <option value="">Pilih RPE</option>
+                                    <option value="0">0 - Tidak ada usaha</option>
+                                    <option value="1">1 - Sangat mudah</option>
+                                    <option value="2">2 - Mudah</option>
+                                    <option value="3">3 - Sedang</option>
+                                    <option value="4">4 - Agak sulit</option>
+                                    <option value="5">5 - Sulit</option>
+                                    <option value="6">6 - Sangat sulit</option>
+                                    <option value="7">7 - Sangat-sangat sulit</option>
+                                    <option value="8">8 - Hampir maksimal</option>
+                                    <option value="9">9 - Maksimal</option>
+                                    <option value="10">10 - Tidak mungkin</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Battery Test Section -->
+                    <div class="form-section" id="batteryTestSection" style="display: none;">
+                        <h4><i class="fas fa-dumbbell"></i> Battery Test</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pushUpCount">Push Up (repetisi)</label>
+                                <input type="number" id="pushUpCount" placeholder="25">
+                            </div>
+                            <div class="form-group">
+                                <label for="sitUpCount">Sit Up (repetisi)</label>
+                                <input type="number" id="sitUpCount" placeholder="30">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="backUpCount">Back Up (repetisi)</label>
+                                <input type="number" id="backUpCount" placeholder="20">
+                            </div>
+                            <div class="form-group">
+                                <label for="squatJumpCount">Squat Jump (repetisi)</label>
+                                <input type="number" id="squatJumpCount" placeholder="35">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cooper Test Section -->
+                    <div class="form-section" id="cooperTestSection" style="display: none;">
+                        <h4><i class="fas fa-running"></i> Cooper Test</h4>
+                        <p class="test-info"><i class="fas fa-info-circle"></i> <strong>2,4km/Rockport 1,6km</strong></p>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="lap1Time">Putaran 1 (menit:detik)</label>
+                                <input type="text" id="lap1Time" placeholder="3:30">
+                            </div>
+                            <div class="form-group">
+                                <label for="lap2Time">Putaran 2 (menit:detik)</label>
+                                <input type="text" id="lap2Time" placeholder="3:45">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="lap3Time">Putaran 3 (menit:detik)</label>
+                                <input type="text" id="lap3Time" placeholder="4:00">
+                            </div>
+                            <div class="form-group">
+                                <label for="lap4Time">Putaran 4 (menit:detik)</label>
+                                <input type="text" id="lap4Time" placeholder="4:15">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="lap5Time">Putaran 5 (menit:detik)</label>
+                                <input type="text" id="lap5Time" placeholder="4:30">
+                            </div>
+                            <div class="form-group">
+                                <label for="lap6Time">Putaran 6 (menit:detik)</label>
+                                <input type="text" id="lap6Time" placeholder="4:45">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interval Test Section -->
+                    <div class="form-section" id="intervalTestSection" style="display: none;">
+                        <h4><i class="fas fa-stopwatch"></i> Interval Test</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="interval1Time">Putaran 1 (menit:detik)</label>
+                                <input type="text" id="interval1Time" placeholder="2:30">
+                            </div>
+                            <div class="form-group">
+                                <label for="interval2Time">Putaran 2 (menit:detik)</label>
+                                <input type="text" id="interval2Time" placeholder="2:45">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="interval3Time">Putaran 3 (menit:detik)</label>
+                                <input type="text" id="interval3Time" placeholder="3:00">
+                            </div>
+                            <div class="form-group">
+                                <label for="interval4Time">Putaran 4 (menit:detik)</label>
+                                <input type="text" id="interval4Time" placeholder="3:15">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="interval5Time">Putaran 5 (menit:detik)</label>
+                                <input type="text" id="interval5Time" placeholder="3:30">
+                            </div>
+                            <div class="form-group">
+                                <label for="interval6Time">Putaran 6 (menit:detik)</label>
+                                <input type="text" id="interval6Time" placeholder="3:45">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" id="cancelFitnessTestBtn">
+                            <i class="fas fa-times"></i>
+                            Batal
+                        </button>
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save"></i>
+                            Simpan Hasil Tes
                         </button>
                     </div>
                 </form>

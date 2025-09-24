@@ -82,6 +82,30 @@ let workoutData = [
     }
 ];
 
+// Fitness test data
+let fitnessTestData = [
+    {
+        id: 1,
+        date: '2025-09-20',
+        type: 'push-up',
+        result: '25',
+        unit: 'repetisi',
+        score: 'B',
+        category: 'pre-test',
+        notes: 'Tes awal untuk mengukur kekuatan otot dada'
+    },
+    {
+        id: 2,
+        date: '2025-09-15',
+        type: 'run-12min',
+        result: '2.4',
+        unit: 'km',
+        score: 'A',
+        category: 'mid-test',
+        notes: 'Lari 12 menit untuk tes kardiovaskular'
+    }
+];
+
 // DOM Elements
 const currentMonthElement = document.getElementById('currentMonth');
 const calendarDaysElement = document.getElementById('calendarDays');
@@ -89,6 +113,9 @@ const todayDateElement = document.getElementById('todayDate');
 const workoutModal = document.getElementById('workoutModal');
 const workoutForm = document.getElementById('workoutForm');
 const addWorkoutBtn = document.getElementById('addWorkoutBtn');
+const fitnessTestModal = document.getElementById('fitnessTestModal');
+const fitnessTestForm = document.getElementById('fitnessTestForm');
+const addFitnessTestBtn = document.getElementById('addFitnessTestBtn');
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -97,6 +124,10 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
     updateTodayInfo();
     updateTodayWorkout();
+    
+    // Auto-select today's date
+    const today = new Date().toISOString().split('T')[0];
+    selectDate(today);
 });
 
 function initializeCalendar() {
@@ -123,8 +154,14 @@ function setupEventListeners() {
     document.getElementById('closeModal').addEventListener('click', closeModal);
     document.getElementById('cancelBtn').addEventListener('click', closeModal);
     
+    // Fitness test modal controls
+    addFitnessTestBtn.addEventListener('click', openFitnessTestModal);
+    document.getElementById('closeFitnessTestModal').addEventListener('click', closeFitnessTestModal);
+    document.getElementById('cancelFitnessTestBtn').addEventListener('click', closeFitnessTestModal);
+    
     // Form submission
     workoutForm.addEventListener('submit', handleFormSubmit);
+    fitnessTestForm.addEventListener('submit', handleFitnessTestSubmit);
 
     // Progress period buttons
     document.querySelectorAll('.period-btn').forEach(btn => {
@@ -217,24 +254,32 @@ function selectDate(dateStr) {
     // Add selection to clicked date
     document.querySelector(`[data-date="${dateStr}"]`)?.classList.add('selected');
     
-    // Show workouts for selected date
-    showWorkoutsForDate(dateStr);
+    // Update "Hari Ini" section with selected date info
+    updateSelectedDateInfo(dateStr);
 }
 
-function showWorkoutsForDate(dateStr) {
+function updateSelectedDateInfo(dateStr) {
     const workouts = workoutData.filter(workout => workout.date === dateStr);
+    const todayDateElement = document.getElementById('todayDate');
+    const todayWorkoutElement = document.getElementById('todayWorkout');
     
+    // Update date display
+    todayDateElement.textContent = formatDate(dateStr);
+    
+    // Update workout display
     if (workouts.length > 0) {
-        let alertText = `Latihan pada ${formatDate(dateStr)}:\\n\\n`;
+        let workoutHTML = '';
         workouts.forEach(workout => {
-            alertText += `🏃‍♂️ ${getWorkoutTypeLabel(workout.type)}\\n`;
-            alertText += `⏰ ${workout.time} (${workout.duration} menit)\\n`;
-            alertText += `🔥 ${workout.calories} kalori\\n`;
-            alertText += `📝 ${workout.notes}\\n\\n`;
+            workoutHTML += `
+                <div class="workout-item">
+                    <span class="workout-time">${workout.time}</span>
+                    <span class="workout-name">${getWorkoutTypeLabel(workout.type)}</span>
+                </div>
+            `;
         });
-        alert(alertText);
+        todayWorkoutElement.innerHTML = workoutHTML;
     } else {
-        alert(`Tidak ada latihan terjadwal pada ${formatDate(dateStr)}`);
+        todayWorkoutElement.innerHTML = '<div class="workout-item"><span class="workout-name">Tidak ada latihan terjadwal</span></div>';
     }
 }
 
@@ -384,7 +429,7 @@ function openModal() {
         document.querySelector('.modal-content').style.transform = 'scale(1)';
     }, 10);
     
-    // Set default date to selected date or today
+    // Set default date to selected date from calendar or today
     const defaultDate = selectedDate || new Date();
     const dateStr = `${defaultDate.getFullYear()}-${String(defaultDate.getMonth() + 1).padStart(2, '0')}-${String(defaultDate.getDate()).padStart(2, '0')}`;
     document.getElementById('workoutDate').value = dateStr;
@@ -403,15 +448,22 @@ function closeModal() {
 function handleFormSubmit(e) {
     e.preventDefault();
     
+    const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
+    const timeSeconds = parseInt(document.getElementById('timeSeconds').value) || 0;
+    const totalTimeMinutes = timeMinutes + (timeSeconds / 60);
+    const evidenceFile = document.getElementById('evidenceFile').files[0];
+    
     const newWorkout = {
         id: Date.now(),
         date: document.getElementById('workoutDate').value,
-        type: document.getElementById('workoutType').value,
-        time: document.getElementById('workoutTime').value,
-        duration: parseInt(document.getElementById('workoutDuration').value),
-        intensity: document.getElementById('workoutIntensity').value,
-        calories: parseInt(document.getElementById('workoutCalories').value) || 0,
-        notes: document.getElementById('workoutNotes').value || 'Latihan mandiri'
+        session: parseInt(document.getElementById('latmanSession').value),
+        distance: parseFloat(document.getElementById('distance').value),
+        pace: document.getElementById('pace').value,
+        timeMinutes: timeMinutes,
+        timeSeconds: timeSeconds,
+        totalTime: totalTimeMinutes,
+        evidenceFile: evidenceFile ? evidenceFile.name : null,
+        type: 'latman'
     };
     
     // Add to workout data
@@ -425,21 +477,153 @@ function handleFormSubmit(e) {
     
     // Show success message
     setTimeout(() => {
-        alert(`✅ Latihan "${getWorkoutTypeLabel(newWorkout.type)}" berhasil ditambahkan pada ${formatDate(newWorkout.date)}`);
+        alert(`✅ Latman Ke-${newWorkout.session} berhasil ditambahkan pada ${formatDate(newWorkout.date)}`);
     }, 500);
 }
 
 // Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && workoutModal.style.display === 'flex') {
-        closeModal();
+    if (e.key === 'Escape') {
+        if (workoutModal.style.display === 'flex') {
+            closeModal();
+        }
+        if (fitnessTestModal.style.display === 'flex') {
+            closeFitnessTestModal();
+        }
     }
     
     if (e.ctrlKey && e.key === 'n') {
         e.preventDefault();
         openModal();
     }
+    
+    if (e.ctrlKey && e.key === 't') {
+        e.preventDefault();
+        openFitnessTestModal();
+    }
 });
+
+// Fitness Test Modal Functions
+function openFitnessTestModal() {
+    // Set default date to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('testDate').value = today;
+    
+    fitnessTestModal.style.display = 'flex';
+    setTimeout(() => {
+        fitnessTestModal.style.opacity = '1';
+        fitnessTestModal.querySelector('.modal-content').style.transform = 'scale(1)';
+    }, 10);
+}
+
+function closeFitnessTestModal() {
+    fitnessTestModal.style.opacity = '0';
+    fitnessTestModal.querySelector('.modal-content').style.transform = 'scale(0.8)';
+    
+    setTimeout(() => {
+        fitnessTestModal.style.display = 'none';
+        fitnessTestForm.reset();
+    }, 300);
+}
+
+function handleFitnessTestSubmit(e) {
+    e.preventDefault();
+    
+    const testType = document.getElementById('testType').value;
+    
+    // Collect basic data
+    const newTest = {
+        id: fitnessTestData.length + 1,
+        studentName: document.getElementById('studentName').value,
+        studentNIM: document.getElementById('studentNIM').value,
+        studentAge: document.getElementById('studentAge').value,
+        chestNumber: document.getElementById('chestNumber').value,
+        recorderNIM: document.getElementById('recorderNIM').value,
+        date: document.getElementById('testDate').value,
+        type: testType,
+        height: parseFloat(document.getElementById('height').value),
+        weight: parseFloat(document.getElementById('weight').value),
+        sleepDuration: parseFloat(document.getElementById('sleepDuration').value),
+        lastMealTime: document.getElementById('lastMealTime').value,
+        initialHeartRate: parseInt(document.getElementById('initialHeartRate').value),
+        finalHeartRate: parseInt(document.getElementById('finalHeartRate').value),
+        rpeScore: parseInt(document.getElementById('rpeScore').value)
+    };
+    
+    // Add test-specific data
+    if (testType === 'kebugaran-awal' || testType === 'endurance-training' || testType === 'strength-training') {
+        newTest.batteryTest = {
+            pushUp: parseInt(document.getElementById('pushUpCount').value) || 0,
+            sitUp: parseInt(document.getElementById('sitUpCount').value) || 0,
+            backUp: parseInt(document.getElementById('backUpCount').value) || 0,
+            squatJump: parseInt(document.getElementById('squatJumpCount').value) || 0
+        };
+        newTest.cooperTest = {
+            lap1: document.getElementById('lap1Time').value || '',
+            lap2: document.getElementById('lap2Time').value || '',
+            lap3: document.getElementById('lap3Time').value || '',
+            lap4: document.getElementById('lap4Time').value || '',
+            lap5: document.getElementById('lap5Time').value || '',
+            lap6: document.getElementById('lap6Time').value || ''
+        };
+    } else if (testType === 'interval') {
+        newTest.intervalTest = {
+            interval1: document.getElementById('interval1Time').value || '',
+            interval2: document.getElementById('interval2Time').value || '',
+            interval3: document.getElementById('interval3Time').value || '',
+            interval4: document.getElementById('interval4Time').value || '',
+            interval5: document.getElementById('interval5Time').value || '',
+            interval6: document.getElementById('interval6Time').value || ''
+        };
+    }
+    
+    // Add to fitness test data
+    fitnessTestData.push(newTest);
+    fitnessTestData.sort((a, b) => new Date(a.date) - new Date(b.date));
+    
+    // Update UI
+    renderCalendar();
+    closeFitnessTestModal();
+    
+    // Show success message
+    setTimeout(() => {
+        alert(`✅ Hasil "${getTestTypeLabel(newTest.type)}" berhasil disimpan untuk ${newTest.studentName}`);
+    }, 500);
+}
+
+function getTestTypeLabel(type) {
+    const testTypes = {
+        'kebugaran-awal': 'Tes Kebugaran Awal',
+        'endurance-training': 'Endurance Training Test',
+        'strength-training': 'Strength Training Test',
+        'interval': 'Interval Test'
+    };
+    return testTypes[type] || type;
+}
+
+// Toggle test sections based on selected test type
+function toggleTestSections() {
+    const testType = document.getElementById('testType').value;
+    const batterySection = document.getElementById('batteryTestSection');
+    const cooperSection = document.getElementById('cooperTestSection');
+    const intervalSection = document.getElementById('intervalTestSection');
+    
+    // Hide all sections first
+    batterySection.style.display = 'none';
+    cooperSection.style.display = 'none';
+    intervalSection.style.display = 'none';
+    
+    // Show relevant sections based on test type
+    if (testType === 'kebugaran-awal' || testType === 'endurance-training' || testType === 'strength-training') {
+        batterySection.style.display = 'block';
+        cooperSection.style.display = 'block';
+    } else if (testType === 'interval') {
+        intervalSection.style.display = 'block';
+    }
+}
+
+// Make function globally available
+window.toggleTestSections = toggleTestSections;
 
 // Auto-refresh today info every minute
 setInterval(updateTodayInfo, 60000);
@@ -447,8 +631,11 @@ setInterval(updateTodayInfo, 60000);
 // Export for global access
 window.LatmanApp = {
     workoutData,
+    fitnessTestData,
     renderCalendar,
     openModal,
     closeModal,
+    openFitnessTestModal,
+    closeFitnessTestModal,
     updateProgressChart
 };
