@@ -149,9 +149,11 @@ function setupCardEventListeners() {
         card.addEventListener('click', () => {
             createRippleEffect(card);
             const title = card.querySelector('h3').textContent;
-            const description = card.querySelector('p').textContent;
+            
+            const materiNumber = title.replace('Materi ', '').padStart(2, '0');
+            
             setTimeout(() => {
-                alert(`Membuka materi: ${title}\n\n${description}`);
+                window.location.href = `kumpulanMateri/materi${materiNumber}.html`;
             }, 200);
         });
         
@@ -177,6 +179,13 @@ function setupCardEventListeners() {
                 button.style.background = 'white';
                 button.style.color = theme.color;
                 button.style.transform = 'scale(1)';
+            });
+            
+            button.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent card click event
+                const title = card.querySelector('h3').textContent;
+                const materiNumber = title.replace('Materi ', '').padStart(2, '0');
+                window.location.href = `kumpulanMateri/materi${materiNumber}.html`;
             });
         }
     });

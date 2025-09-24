@@ -91,6 +91,11 @@ function generateTimeline() {
         scheduleData[category].forEach(item => {
             const timelineItem = document.createElement('div');
             timelineItem.className = 'timeline-item';
+            const isMateriItem = category === 'materi' && item.title.includes('Materi');
+            const detailAction = isMateriItem 
+                ? `onclick="navigateToMateri('${item.title}')"`
+                : `onclick="showDetailModal('${item.title}', '${item.description}', '${item.location}', '${item.time}')"`;
+            
             timelineItem.innerHTML = `
                 <div class="timeline-icon">
                     <i class="fas fa-book"></i>
@@ -100,7 +105,7 @@ function generateTimeline() {
                     <h2>${item.title}</h2>
                     <p><strong>${item.location}</strong></p>
                     <p>${item.description}</p>
-                    <a href="#" class="btn" onclick="showDetailModal('${item.title}', '${item.description}', '${item.location}', '${item.time}')">Detail</a>
+                    <a href="#" class="btn" ${detailAction}>Detail</a>
                 </div>
             `;
             timeline.appendChild(timelineItem);
@@ -146,6 +151,14 @@ function initCategoryFilter() {
             });
         });
     });
+}
+
+function navigateToMateri(title) {
+    // Extract materi number from title (e.g., "Materi 01" -> "01")
+    const materiNumber = title.replace('Materi ', '').padStart(2, '0');
+    
+    // Navigate to the corresponding materi file 
+    window.location.href = `kumpulanMateri/materi${materiNumber}.html`;
 }
 
 function showDetailModal(title, description, location, time) {
