@@ -118,8 +118,7 @@
     margin-bottom: 20px;
 }
 
-/* ===== EXERCISE VISUALIZATIONS ===== */
-/* Exercise Grid for Battery Test */
+/* ===== MATERI 04: METODE PENGETESAN KONDISI FISIK ===== */
 .exercise-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -127,21 +126,27 @@
     margin: 20px 0;
 }
 
-.exercise-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.exercise-card, .strength-card {
     border-radius: 15px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
     transition: all 0.3s ease;
 }
 
-.exercise-card:hover {
+.exercise-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.exercise-card:hover, .strength-card:hover {
     transform: translateY(-5px);
+}
+
+.exercise-card:hover {
     box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
 }
 
-.exercise-gif-container {
+.exercise-gif-container, .strength-gif-container {
     position: relative;
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -155,11 +160,12 @@
     transition: transform 0.3s ease;
 }
 
-.exercise-card:hover .exercise-gif {
+.exercise-card:hover .exercise-gif,
+.strength-card:hover .exercise-gif {
     transform: scale(1.05);
 }
 
-.exercise-overlay {
+.exercise-overlay, .strength-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -170,18 +176,19 @@
     text-align: center;
 }
 
-.exercise-name {
+.exercise-name, .strength-name {
     font-weight: 700;
     font-size: 1.1em;
     margin-bottom: 5px;
 }
 
-.exercise-target {
+.exercise-target, .strength-target {
     font-size: 0.9em;
     opacity: 0.9;
+    margin-bottom: 3px;
 }
 
-/* Strength Test Grid */
+
 .strength-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -191,46 +198,11 @@
 
 .strength-card {
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
     box-shadow: 0 8px 20px rgba(240, 147, 251, 0.3);
-    transition: all 0.3s ease;
 }
 
 .strength-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(240, 147, 251, 0.4);
-}
-
-.strength-gif-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-}
-
-.strength-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
-
-.strength-name {
-    font-weight: 700;
-    font-size: 1.1em;
-    margin-bottom: 3px;
-}
-
-.strength-target {
-    font-size: 0.9em;
-    opacity: 0.9;
-    margin-bottom: 3px;
 }
 
 .strength-method {
@@ -238,7 +210,7 @@
     opacity: 0.8;
 }
 
-/* ===== CARDIOVASCULAR TEST LAYOUT ===== */
+
 .cardio-layout {
     display: flex;
     gap: 15px;
@@ -322,21 +294,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.cardio-visual .rockport-visual {
-    margin: 0;
-    background: #26445d;
-    border-radius: 20px;
-    padding: 25px;
-    color: white;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 10px 30px rgba(38, 68, 93, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
 
-/* VO2 Comparison Layout */
 .vo2-comparison {
     display: flex;
     flex-direction: column;
@@ -361,7 +319,7 @@
     margin: 0;
 }
 
-/* Legacy cardio-visual styling for backward compatibility */
+
 .cardio-visual:not(.cardio-layout .cardio-visual) {
     margin: 20px 0;
     background: #26445d;
@@ -399,13 +357,7 @@
     animation: trackPulse 3s ease-in-out infinite;
 }
 
-.track-distance {
-    position: absolute;
-    top: 30px;
-    left: 30%;
-    font-size: 0.8em;
-    font-weight: 600;
-}
+
 
 .runner-icon {
     font-size: 2em;
@@ -469,7 +421,7 @@
     font-size: 1.2em;
 }
 
-/* Bleep Test Visual */
+
 .bleep-visual {
     background: #26445d;
     border-radius: 15px;
@@ -498,10 +450,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.cone {
-    font-size: 2em;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
-}
+
 
 .track-line {
     flex: 1;
@@ -591,7 +540,7 @@
     opacity: 0.9;
 }
 
-/* Balke Test Visual */
+
 .balke-visual {
     margin: 15px 0;
     background: #26445d;
@@ -623,7 +572,21 @@
     justify-content: center;
 }
 
-.timer-display:hover {
+.timer-display, .distance-counter {
+    text-align: center;
+    background: rgba(255,255,255,0.25);
+    border-radius: 18px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.timer-display:hover, .distance-counter:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
@@ -645,23 +608,7 @@
 }
 
 .distance-counter {
-    text-align: center;
-    background: rgba(255,255,255,0.25);
-    border-radius: 18px;
-    padding: 18px;
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.distance-counter:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
 .distance-icon {
@@ -710,14 +657,7 @@
     }
 }
 
-/* Rockport Test Visual */
-.rockport-visual {
-    margin: 20px 0;
-    background: #26445d;
-    border-radius: 15px;
-    padding: 20px;
-    color: white;
-}
+
 
 .walking-demo {
     display: flex;
@@ -880,7 +820,7 @@
     75% { transform: rotate(-10deg); }
 }
 
-/* Flexibility Test Visual */
+
 .flexibility-visual {
     margin: 20px 0;
     background: #26445d;
@@ -937,7 +877,7 @@
     font-size: 0.9em;
 }
 
-/* Responsive Design for Visuals */
+
 @media (max-width: 768px) {
     .cardio-layout {
         flex-direction: column;
@@ -1232,7 +1172,7 @@
     background: rgba(38, 68, 93, 0.05);
 }
 
-/* Extra wide screens */
+
 @media (min-width: 1701px) {
     .materi-container {
         padding: 120px 40px 40px;
@@ -1311,10 +1251,8 @@
     }
 }
 
-/* ===== MATERI05.HTML SPECIFIC STYLES ===== */
-/* Injury visualization and interactive components for sports injury page */
+/* ===== MATERI 05: CEDERA OLAHRAGA ===== */
 
-/* Custom styles for injury visualization */
 .injury-visualizer {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border-radius: 15px;
@@ -1323,7 +1261,7 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Muscle Map Container */
+
 .muscle-map-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1361,7 +1299,7 @@
     opacity: 1;
 }
 
-/* Injury Buttons Grid */
+
 .injury-buttons-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1409,7 +1347,7 @@
     flex: 1;
 }
 
-/* Classification Grid Layout */
+
 .classification-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1445,7 +1383,7 @@
     font-size: 1.2em;
 }
 
-/* Injury Type Cards */
+
 .injury-type-card {
     margin-bottom: 15px;
     border-radius: 12px;
@@ -1501,7 +1439,7 @@
     font-weight: 600;
 }
 
-/* Factor Groups */
+
 .factor-group {
     margin-bottom: 20px;
     border-radius: 10px;
@@ -1583,7 +1521,7 @@
     min-width: 14px;
 }
 
-/* Injury Types Grid */
+
 .injury-types-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1645,7 +1583,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Severity Legend */
+
 .severity-legend {
     background: white;
     border-radius: 10px;
@@ -1683,7 +1621,7 @@
 .legend-color.severe { background: #dc3545; }
 .legend-color.critical { background: #6c757d; }
 
-/* Interactive Components */
+
 .injury-info-panel {
     background: white;
     border-radius: 10px;
@@ -1991,7 +1929,7 @@
     box-shadow: 0 8px 20px rgba(38, 68, 93, 0.3);
 }
 
-/* Keyframe animations for materi05 */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -2012,7 +1950,7 @@
     }
 }
 
-/* Responsive adjustments for materi05 specific components */
+
 @media (max-width: 768px) {
     .classification-grid {
         grid-template-columns: 1fr;

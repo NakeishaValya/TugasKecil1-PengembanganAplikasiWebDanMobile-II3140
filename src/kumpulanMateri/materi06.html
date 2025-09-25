@@ -3,177 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi 6: Simulasi Cabang Olahraga - PAWM</title>
+    <title>Materi 6: Pengenalan Cabang Olahraga - PAWM</title>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/materi-detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Custom styles for sports simulation */
-        .sport-simulator {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .simulator-controls {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .control-group {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .control-group label {
-            display: block;
-            font-weight: 600;
-            color: #26445d;
-            margin-bottom: 8px;
-        }
-
-        .control-group input,
-        .control-group select {
-            width: 100%;
-            padding: 8px 12px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: border-color 0.3s ease;
-        }
-
-        .control-group input:focus,
-        .control-group select:focus {
-            outline: none;
-            border-color: #4a6fa5;
-        }
-
-        .simulate-btn {
-            background: linear-gradient(135deg, #26445d, #4a6fa5);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(38, 68, 93, 0.3);
-        }
-
-        .simulate-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(38, 68, 93, 0.4);
-        }
-
-        .simulation-result {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            border-left: 5px solid #28a745;
-            display: none;
-        }
-
-        .simulation-result.show {
-            display: block;
-            animation: fadeInUp 0.5s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .result-header {
-            color: #26445d;
-            font-size: 1.3em;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .result-content {
-            color: #495057;
-            line-height: 1.6;
-        }
-
-        .match-score {
-            font-size: 2em;
-            font-weight: 700;
-            text-align: center;
-            color: #26445d;
-            margin: 15px 0;
-            padding: 15px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 10px;
-        }
-
-        .player-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 15px 0;
-        }
-
-        .stat-item {
-            background: #f8f9fa;
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #26445d;
-        }
-
-        .stat-label {
-            font-size: 0.9em;
-            color: #6c757d;
-            margin-top: 5px;
-        }
-
-        .game-events {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        .event-item {
-            padding: 8px 0;
-            border-bottom: 1px solid #e9ecef;
-            font-size: 0.9em;
-        }
-
-        .event-item:last-child {
-            border-bottom: none;
-        }
-
-        .event-time {
-            font-weight: 600;
-            color: #26445d;
-            margin-right: 10px;
-        }
-
         .sport-icon {
             font-size: 2em;
             margin-bottom: 15px;
@@ -204,13 +38,13 @@
             <span class="separator">></span>
             <a href="../materi.html">Materi</a>
             <span class="separator">></span>
-            <span>Simulasi Cabang Olahraga</span>
+            <span>Pengenalan Cabang Olahraga</span>
         </div>
 
         <!-- Header -->
         <div class="materi-header">
-            <h1>Simulasi Cabang Olahraga</h1>
-            <p class="subtitle">Eksplorasi interaktif dari 4 cabang olahraga populer: Bola Voli, Bola Tangan, Bola Basket, dan Sepak Bola</p>
+            <h1>Pengenalan Cabang Olahraga</h1>
+            <p class="subtitle">Pelajari informasi dasar dari 4 cabang olahraga populer: Bola Voli, Bola Tangan, Bola Basket, dan Sepak Bola</p>
         </div>
 
         <div class="content-wrapper">
@@ -219,7 +53,7 @@
                 <!-- Section 1: Bola Voli -->
                 <section class="section" id="bola-voli">
                     <div class="section-header">
-                        <h2><i class="fas fa-volleyball-ball"></i> Section 1: Bola Voli</h2>
+                        <h2><i class="fas fa-volleyball-ball"></i> Bola Voli</h2>
                     </div>
                     <div class="section-content">
                         <div class="subsection" id="volleyball-info">
@@ -271,50 +105,14 @@
                             </div>
                         </div>
 
-                        <div class="subsection" id="volleyball-simulator">
-                            <div class="subsection-title">
-                                <i class="fas fa-play"></i> Simulator Pertandingan Bola Voli
-                            </div>
 
-                            <div class="sport-simulator">
-                                <div class="simulator-controls">
-                                    <div class="control-group">
-                                        <label for="vb-team1">Tim A:</label>
-                                        <input type="text" id="vb-team1" placeholder="Nama Tim A" value="Garuda">
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="vb-team2">Tim B:</label>
-                                        <input type="text" id="vb-team2" placeholder="Nama Tim B" value="Elang">
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="vb-sets">Jumlah Set:</label>
-                                        <select id="vb-sets">
-                                            <option value="3">Best of 3</option>
-                                            <option value="5" selected>Best of 5</option>
-                                        </select>
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="vb-difficulty">Tingkat Kesulitan:</label>
-                                        <select id="vb-difficulty">
-                                            <option value="easy">Mudah</option>
-                                            <option value="medium" selected>Sedang</option>
-                                            <option value="hard">Sulit</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <button class="simulate-btn" onclick="simulateVolleyball()">
-                                    <i class="fas fa-play"></i> Simulasikan Pertandingan
-                                </button>
-                                <div id="volleyball-result" class="simulation-result"></div>
-                            </div>
-                        </div>
                     </div>
                 </section>
 
                 <!-- Section 2: Bola Tangan -->
                 <section class="section" id="bola-tangan">
                     <div class="section-header">
-                        <h2><i class="fas fa-hand-paper"></i> Section 2: Bola Tangan</h2>
+                        <h2><i class="fas fa-hand-paper"></i> Bola Tangan</h2>
                     </div>
                     <div class="section-content">
                         <div class="subsection" id="handball-info">
@@ -328,7 +126,7 @@
                                 </div>
                                 
                                 <p class="text-content">
-                                    <span class="highlight-text">Bola tangan adalah olahraga beregu yang dimainkan dengan tangan</span>, di mana dua tim berusaha mencetak gol ke gawang lawan dengan melempar bola.
+                                    <span class="highlight-text">Bola tangan adalah olahraga beregu yang dimainkan dengan tangan</span>, dimana dua tim berusaha mencetak gol dengan melempar bola ke gawang lawan.
                                 </p>
 
                                 <div class="comparison-table">
@@ -365,52 +163,13 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="subsection" id="handball-simulator">
-                            <div class="subsection-title">
-                                <i class="fas fa-play"></i> Simulator Pertandingan Bola Tangan
-                            </div>
-
-                            <div class="sport-simulator">
-                                <div class="simulator-controls">
-                                    <div class="control-group">
-                                        <label for="hb-team1">Tim A:</label>
-                                        <input type="text" id="hb-team1" placeholder="Nama Tim A" value="Thunder">
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="hb-team2">Tim B:</label>
-                                        <input type="text" id="hb-team2" placeholder="Nama Tim B" value="Lightning">
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="hb-duration">Durasi (menit):</label>
-                                        <select id="hb-duration">
-                                            <option value="20">20 menit</option>
-                                            <option value="30">30 menit</option>
-                                            <option value="60" selected>60 menit (2×30)</option>
-                                        </select>
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="hb-style">Gaya Permainan:</label>
-                                        <select id="hb-style">
-                                            <option value="defensive">Defensif</option>
-                                            <option value="balanced" selected>Seimbang</option>
-                                            <option value="offensive">Ofensif</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <button class="simulate-btn" onclick="simulateHandball()">
-                                    <i class="fas fa-play"></i> Simulasikan Pertandingan
-                                </button>
-                                <div id="handball-result" class="simulation-result"></div>
-                            </div>
-                        </div>
                     </div>
                 </section>
 
                 <!-- Section 3: Bola Basket -->
                 <section class="section" id="bola-basket">
                     <div class="section-header">
-                        <h2><i class="fas fa-basketball-ball"></i> Section 3: Bola Basket</h2>
+                        <h2><i class="fas fa-basketball-ball"></i> Bola Basket</h2>
                     </div>
                     <div class="section-content">
                         <div class="subsection" id="basketball-info">
@@ -462,50 +221,14 @@
                             </div>
                         </div>
 
-                        <div class="subsection" id="basketball-simulator">
-                            <div class="subsection-title">
-                                <i class="fas fa-play"></i> Simulator Pertandingan Bola Basket
-                            </div>
 
-                            <div class="sport-simulator">
-                                <div class="simulator-controls">
-                                    <div class="control-group">
-                                        <label for="bb-team1">Tim A:</label>
-                                        <input type="text" id="bb-team1" placeholder="Nama Tim A" value="Warriors">
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="bb-team2">Tim B:</label>
-                                        <input type="text" id="bb-team2" placeholder="Nama Tim B" value="Lakers">
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="bb-quarters">Jumlah Quarter:</label>
-                                        <select id="bb-quarters">
-                                            <option value="2">2 Quarter</option>
-                                            <option value="4" selected>4 Quarter</option>
-                                        </select>
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="bb-pace">Tempo Permainan:</label>
-                                        <select id="bb-pace">
-                                            <option value="slow">Lambat</option>
-                                            <option value="medium" selected>Sedang</option>
-                                            <option value="fast">Cepat</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <button class="simulate-btn" onclick="simulateBasketball()">
-                                    <i class="fas fa-play"></i> Simulasikan Pertandingan
-                                </button>
-                                <div id="basketball-result" class="simulation-result"></div>
-                            </div>
-                        </div>
                     </div>
                 </section>
 
                 <!-- Section 4: Sepak Bola -->
                 <section class="section" id="sepak-bola">
                     <div class="section-header">
-                        <h2><i class="fas fa-futbol"></i> Section 4: Sepak Bola</h2>
+                        <h2><i class="fas fa-futbol"></i> Sepak Bola</h2>
                     </div>
                     <div class="section-content">
                         <div class="subsection" id="football-info">
@@ -557,46 +280,7 @@
                             </div>
                         </div>
 
-                        <div class="subsection" id="football-simulator">
-                            <div class="subsection-title">
-                                <i class="fas fa-play"></i> Simulator Pertandingan Sepak Bola
-                            </div>
 
-                            <div class="sport-simulator">
-                                <div class="simulator-controls">
-                                    <div class="control-group">
-                                        <label for="fb-team1">Tim A:</label>
-                                        <input type="text" id="fb-team1" placeholder="Nama Tim A" value="Barcelona">
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="fb-team2">Tim B:</label>
-                                        <input type="text" id="fb-team2" placeholder="Nama Tim B" value="Real Madrid">
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="fb-formation1">Formasi Tim A:</label>
-                                        <select id="fb-formation1">
-                                            <option value="4-4-2">4-4-2</option>
-                                            <option value="4-3-3" selected>4-3-3</option>
-                                            <option value="3-5-2">3-5-2</option>
-                                            <option value="4-2-3-1">4-2-3-1</option>
-                                        </select>
-                                    </div>
-                                    <div class="control-group">
-                                        <label for="fb-formation2">Formasi Tim B:</label>
-                                        <select id="fb-formation2">
-                                            <option value="4-4-2" selected>4-4-2</option>
-                                            <option value="4-3-3">4-3-3</option>
-                                            <option value="3-5-2">3-5-2</option>
-                                            <option value="4-2-3-1">4-2-3-1</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <button class="simulate-btn" onclick="simulateFootball()">
-                                    <i class="fas fa-play"></i> Simulasikan Pertandingan
-                                </button>
-                                <div id="football-result" class="simulation-result"></div>
-                            </div>
-                        </div>
                     </div>
                 </section>
             </main>
@@ -609,16 +293,12 @@
                     <ul class="toc-list">
                         <li><a href="#bola-voli">🏐 Bola Voli</a></li>
                         <li><a href="#volleyball-info" class="subsection-link">Info Dasar</a></li>
-                        <li><a href="#volleyball-simulator" class="subsection-link">Simulator</a></li>
                         <li><a href="#bola-tangan">🤾 Bola Tangan</a></li>
                         <li><a href="#handball-info" class="subsection-link">Info Dasar</a></li>
-                        <li><a href="#handball-simulator" class="subsection-link">Simulator</a></li>
                         <li><a href="#bola-basket">🏀 Bola Basket</a></li>
                         <li><a href="#basketball-info" class="subsection-link">Info Dasar</a></li>
-                        <li><a href="#basketball-simulator" class="subsection-link">Simulator</a></li>
                         <li><a href="#sepak-bola">⚽ Sepak Bola</a></li>
                         <li><a href="#football-info" class="subsection-link">Info Dasar</a></li>
-                        <li><a href="#football-simulator" class="subsection-link">Simulator</a></li>
                     </ul>
                 </div>
 
@@ -628,7 +308,7 @@
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: 0%"></div>
                     </div>
-                    <div class="progress-text">0/4 cabang olahraga selesai (0%)</div>
+                    <div class="progress-text">0/4 cabang olahraga dipelajari (0%)</div>
                 </div>
             </aside>
         </div>
@@ -636,220 +316,5 @@
 
     <script src="../../assets/js/navbar.js"></script>
     <script src="../../assets/js/materi-detail.js"></script>
-    <script>
-        // Sports Simulation Functions
-        function simulateVolleyball() {
-            const team1 = document.getElementById('vb-team1').value || 'Tim A';
-            const team2 = document.getElementById('vb-team2').value || 'Tim B';
-            const sets = parseInt(document.getElementById('vb-sets').value);
-            const difficulty = document.getElementById('vb-difficulty').value;
-            
-            // Generate random scores based on difficulty
-            const maxSets = Math.ceil(sets / 2);
-            let team1Sets = 0, team2Sets = 0;
-            let setScores = [];
-            
-            while (team1Sets < maxSets && team2Sets < maxSets) {
-                let set1Score, set2Score;
-                
-                // Generate set scores (25 points to win, must win by 2)
-                const baseScore = 25;
-                const variation = difficulty === 'easy' ? 5 : difficulty === 'medium' ? 8 : 12;
-                
-                set1Score = baseScore + Math.floor(Math.random() * variation);
-                set2Score = baseScore + Math.floor(Math.random() * variation);
-                
-                // Ensure winner has at least 25 and wins by 2
-                if (Math.abs(set1Score - set2Score) < 2) {
-                    if (Math.random() > 0.5) {
-                        set1Score = Math.max(set1Score, 25);
-                        set2Score = set1Score - 2;
-                    } else {
-                        set2Score = Math.max(set2Score, 25);
-                        set1Score = set2Score - 2;
-                    }
-                }
-                
-                if (set1Score > set2Score) {
-                    team1Sets++;
-                } else {
-                    team2Sets++;
-                }
-                
-                setScores.push(`${set1Score}-${set2Score}`);
-            }
-            
-            const winner = team1Sets > team2Sets ? team1 : team2;
-            const finalScore = `${team1Sets}-${team2Sets}`;
-            
-            // Generate match events
-            const events = [
-                `Set 1: ${team1} vs ${team2} - ${setScores[0]}`,
-                `Set 2: ${team1} vs ${team2} - ${setScores[1]}`,
-                setScores[2] ? `Set 3: ${team1} vs ${team2} - ${setScores[2]}` : null,
-                setScores[3] ? `Set 4: ${team1} vs ${team2} - ${setScores[3]}` : null,
-                setScores[4] ? `Set 5: ${team1} vs ${team2} - ${setScores[4]}` : null
-            ].filter(Boolean);
-            
-            displayResult('volleyball-result', {
-                title: 'Hasil Pertandingan Bola Voli',
-                icon: 'fa-volleyball-ball',
-                winner: winner,
-                score: finalScore,
-                events: events,
-                stats: [
-                    { label: 'Total Set', value: setScores.length },
-                    { label: 'Durasi Perkiraan', value: `${setScores.length * 25} menit` },
-                    { label: 'Set Terpanjang', value: Math.max(...setScores.map(s => Math.max(...s.split('-').map(Number)))) },
-                    { label: 'Selisih Set', value: Math.abs(team1Sets - team2Sets) }
-                ]
-            });
-        }
-        
-        function simulateHandball() {
-            const team1 = document.getElementById('hb-team1').value || 'Tim A';
-            const team2 = document.getElementById('hb-team2').value || 'Tim B';
-            const duration = parseInt(document.getElementById('hb-duration').value);
-            const style = document.getElementById('hb-style').value;
-            
-            // Generate scores based on style and duration
-            let multiplier = duration / 30; // Base multiplier for 30 minutes
-            let baseScore = style === 'defensive' ? 15 : style === 'balanced' ? 20 : 25;
-            
-            const team1Score = Math.floor((baseScore + Math.random() * 10) * multiplier);
-            const team2Score = Math.floor((baseScore + Math.random() * 10) * multiplier);
-            
-            const winner = team1Score > team2Score ? team1 : team2Score > team1Score ? team2 : 'Seri';
-            const finalScore = `${team1Score}-${team2Score}`;
-            
-            // Generate match events
-            const events = [
-                `Menit 15: ${team1} ${Math.floor(team1Score/4)} - ${Math.floor(team2Score/4)} ${team2}`,
-                `Menit 30: ${team1} ${Math.floor(team1Score/2)} - ${Math.floor(team2Score/2)} ${team2}`,
-                duration > 30 ? `Menit 45: ${team1} ${Math.floor(team1Score*0.75)} - ${Math.floor(team2Score*0.75)} ${team2}` : null,
-                duration > 45 ? `Menit 60: ${team1} ${team1Score} - ${team2Score} ${team2}` : null
-            ].filter(Boolean);
-            
-            displayResult('handball-result', {
-                title: 'Hasil Pertandingan Bola Tangan',
-                icon: 'fa-hand-paper',
-                winner: winner,
-                score: finalScore,
-                events: events,
-                stats: [
-                    { label: 'Total Gol', value: team1Score + team2Score },
-                    { label: 'Rata-rata Gol/Menit', value: ((team1Score + team2Score) / duration).toFixed(1) },
-                    { label: 'Gol Terbanyak', value: Math.max(team1Score, team2Score) },
-                    { label: 'Selisih Gol', value: Math.abs(team1Score - team2Score) }
-                ]
-            });
-        }
-        
-        function simulateBasketball() {
-            const team1 = document.getElementById('bb-team1').value || 'Tim A';
-            const team2 = document.getElementById('bb-team2').value || 'Tim B';
-            const quarters = parseInt(document.getElementById('bb-quarters').value);
-            const pace = document.getElementById('bb-pace').value;
-            
-            // Generate scores based on pace and quarters
-            let baseScore = pace === 'slow' ? 20 : pace === 'medium' ? 25 : 30;
-            
-            let team1Score = 0, team2Score = 0;
-            let quarterScores = [];
-            
-            for (let i = 0; i < quarters; i++) {
-                const q1Score = baseScore + Math.floor(Math.random() * 15);
-                const q2Score = baseScore + Math.floor(Math.random() * 15);
-                
-                team1Score += q1Score;
-                team2Score += q2Score;
-                quarterScores.push(`Q${i+1}: ${q1Score}-${q2Score}`);
-            }
-            
-            const winner = team1Score > team2Score ? team1 : team2Score > team1Score ? team2 : 'Seri';
-            const finalScore = `${team1Score}-${team2Score}`;
-            
-            displayResult('basketball-result', {
-                title: 'Hasil Pertandingan Bola Basket',
-                icon: 'fa-basketball-ball',
-                winner: winner,
-                score: finalScore,
-                events: quarterScores,
-                stats: [
-                    { label: 'Total Poin', value: team1Score + team2Score },
-                    { label: 'Rata-rata/Quarter', value: Math.floor((team1Score + team2Score) / quarters / 2) },
-                    { label: 'Quarter Tertinggi', value: Math.max(...quarterScores.map(q => Math.max(...q.split(': ')[1].split('-').map(Number)))) },
-                    { label: 'Selisih Poin', value: Math.abs(team1Score - team2Score) }
-                ]
-            });
-        }
-        
-        function simulateFootball() {
-            const team1 = document.getElementById('fb-team1').value || 'Tim A';
-            const team2 = document.getElementById('fb-team2').value || 'Tim B';
-            const formation1 = document.getElementById('fb-formation1').value;
-            const formation2 = document.getElementById('fb-formation2').value;
-            
-            // Generate scores (typically low in football)
-            const team1Score = Math.floor(Math.random() * 4); // 0-3 goals
-            const team2Score = Math.floor(Math.random() * 4); // 0-3 goals
-            
-            const winner = team1Score > team2Score ? team1 : team2Score > team1Score ? team2 : 'Seri';
-            const finalScore = `${team1Score}-${team2Score}`;
-            
-            // Generate match events
-            const events = [
-                `Formasi: ${team1} (${formation1}) vs ${team2} (${formation2})`,
-                `Menit 45: Babak I berakhir`,
-                `Menit 90: Pertandingan berakhir`,
-                team1Score > 0 ? `Gol ${team1}: ${Math.floor(Math.random() * 90 + 1)}'` : null,
-                team2Score > 0 ? `Gol ${team2}: ${Math.floor(Math.random() * 90 + 1)}'` : null
-            ].filter(Boolean);
-            
-            displayResult('football-result', {
-                title: 'Hasil Pertandingan Sepak Bola',
-                icon: 'fa-futbol',
-                winner: winner,
-                score: finalScore,
-                events: events,
-                stats: [
-                    { label: 'Total Gol', value: team1Score + team2Score },
-                    { label: 'Durasi', value: '90 menit' },
-                    { label: 'Formasi Tim A', value: formation1 },
-                    { label: 'Formasi Tim B', value: formation2 }
-                ]
-            });
-        }
-        
-        function displayResult(elementId, data) {
-            const resultDiv = document.getElementById(elementId);
-            
-            resultDiv.innerHTML = `
-                <div class="result-header">
-                    <i class="fas ${data.icon}"></i>
-                    ${data.title}
-                </div>
-                <div class="match-score">
-                    ${data.score}
-                    <br>
-                    <small style="font-size: 0.6em; color: #6c757d;">Pemenang: ${data.winner}</small>
-                </div>
-                <div class="player-stats">
-                    ${data.stats.map(stat => `
-                        <div class="stat-item">
-                            <div class="stat-value">${stat.value}</div>
-                            <div class="stat-label">${stat.label}</div>
-                        </div>
-                    `).join('')}
-                </div>
-                <div class="game-events">
-                    <strong>📋 Rangkuman Pertandingan:</strong>
-                    ${data.events.map(event => `<div class="event-item">${event}</div>`).join('')}
-                </div>
-            `;
-            
-            resultDiv.classList.add('show');
-        }
-    </script>
 </body>
 </html>
