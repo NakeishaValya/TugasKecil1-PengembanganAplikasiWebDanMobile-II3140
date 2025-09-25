@@ -18,6 +18,208 @@
         .handball-icon { color: #4ecdc4; }
         .basketball-icon { color: #ff9f43; }
         .football-icon { color: #10ac84; }
+
+        /* Field Visualization Styles */
+        .content-with-field {
+            display: grid;
+            grid-template-columns: 650px 1fr;
+            align-items: start;
+        }
+
+
+
+        .field-controls {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .field-control {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 12px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: 700;
+            color: #26445d;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border: 3px solid #26445d;
+            font-size: 0.9em;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .field-control:hover {
+            background: linear-gradient(135deg, #26445d, #4a6fa5);
+            color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(38, 68, 93, 0.4);
+            border-color: #4a6fa5;
+        }
+
+        .field-control.active {
+            background: linear-gradient(135deg, #26445d, #4a6fa5);
+            color: white;
+            border-color: #4a6fa5;
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(38, 68, 93, 0.3);
+        }
+
+
+        .content-with-field .field-image {
+            width: 100%;
+            max-width: 500px;
+            max-height: 800px;
+            border-radius: 10px;
+            box-shadow: 0 8px 2px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            object-fit: contain;
+            display: block;
+            position: sticky;
+            top: 20px;
+            margin-left: auto; 
+            margin-right: 30px;
+        }
+
+        .content-with-field .field-description {
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.85em;
+            margin-top: 12px;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .table-with-controls {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-with-field .comparison-table {
+            margin: 0;
+        }
+
+        .content-with-field .comparison-table table {
+            font-size: 0.9em;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .content-with-field .comparison-table th:first-child,
+        .content-with-field .comparison-table td:first-child {
+            width: 40%;
+        }
+
+        .content-with-field .comparison-table th:last-child,
+        .content-with-field .comparison-table td:last-child {
+            width: 60%;
+        }
+
+        .content-with-field .comparison-table td,
+        .content-with-field .comparison-table th {
+            padding: 12px 15px;
+            word-wrap: break-word;
+            line-height: 1.5;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .table-with-controls .field-controls {
+            margin-top: 15px;
+            justify-content: flex-start;
+        }
+
+        /* Violations Box Styles */
+        .violations-box {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 3px solid #dc3545;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.15);
+        }
+
+        .violations-title {
+            color: #dc3545;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .violations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .violation-item {
+            background: white;
+            border: 2px solid #dc3545;
+            border-radius: 10px;
+            padding: 12px 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #dc3545;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .violation-item:hover {
+            background: #dc3545;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+        }
+
+        .violation-explanation {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 8px 0 12px 0;
+            text-align: center;
+            font-style: italic;
+            color: #856404;
+            font-weight: 500;
+            min-height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .violation-explanation.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .violation-explanation.default {
+            background: #d1ecf1;
+            border-color: #bee5eb;
+            color: #0c5460;
+        }
+
+        @media (max-width: 1024px) {
+            .content-with-field {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .field-container {
+                position: relative;
+                top: auto;
+            }
+        }
     </style>
 </head>
 <body class="materi-detail-page">
@@ -57,10 +259,6 @@
                     </div>
                     <div class="section-content">
                         <div class="subsection" id="volleyball-info">
-                            <div class="subsection-title">
-                                <i class="fas fa-info-circle"></i> Informasi Dasar Bola Voli
-                            </div>
-
                             <div class="content-block">
                                 <div class="sport-icon volleyball-icon">
                                     <i class="fas fa-volleyball-ball"></i>
@@ -70,96 +268,81 @@
                                     <span class="highlight-text">Bola voli adalah olahraga beregu yang dimainkan oleh dua tim</span>, masing-masing terdiri dari 6 pemain. Tujuannya adalah mencetak poin dengan cara menjatuhkan bola di area lawan.
                                 </p>
 
-                                <div class="comparison-table">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Aspek</th>
-                                                <th>Spesifikasi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>Jumlah Pemain</strong></td>
-                                                <td>6 pemain per tim (12 total)</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Durasi Set</strong></td>
-                                                <td>Hingga 25 poin (harus unggul 2 poin)</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Jumlah Set</strong></td>
-                                                <td>Best of 5 (3 set menang)</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Ukuran Lapangan</strong></td>
-                                                <td>18m × 9m</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Tinggi Net</strong></td>
-                                                <td>2.43m (putra), 2.24m (putri)</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="content-with-field">
+                                    <div class="table-with-controls">
+                                        <div class="comparison-table">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Aspek</th>
+                                                        <th>Spesifikasi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong>Jumlah Pemain</strong></td>
+                                                        <td>6 pemain per tim (12 total)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Durasi Set</strong></td>
+                                                        <td>Hingga 25 poin (harus unggul 2 poin)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Jumlah Set</strong></td>
+                                                        <td>Best of 5 (3 set menang)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Ukuran Lapangan</strong></td>
+                                                        <td>18m × 9m</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Tinggi Net</strong></td>
+                                                        <td>2.43m (putra), 2.24m (putri)</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
 
+                                        <div class="violations-box">
+                                            <div class="violations-title">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                                Pelanggaran Permainan Bola Voli
+                                            </div>
+                                            <div class="violations-grid">
+                                                <div class="violation-item" onmouseover="showViolationExplanation('volleyball', 'net')" onmouseout="hideViolationExplanation('volleyball')">Menyentuh Net</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('volleyball', 'double')" onmouseout="hideViolationExplanation('volleyball')">Double Hit</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('volleyball', 'carry')" onmouseout="hideViolationExplanation('volleyball')">Carry/Lift</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('volleyball', 'foot')" onmouseout="hideViolationExplanation('volleyball')">Foot Fault</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('volleyball', 'fourhits')" onmouseout="hideViolationExplanation('volleyball')">Four Hits</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('volleyball', 'backrow')" onmouseout="hideViolationExplanation('volleyball')">Back Row Attack</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('volleyball', 'service')" onmouseout="hideViolationExplanation('volleyball')">Service Fault</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('volleyball', 'rotation')" onmouseout="hideViolationExplanation('volleyball')">Rotation Error</div>
+                                            </div>
+                                        </div>
 
-                    </div>
-                </section>
+                                        <div id="volleyball-explanation" class="violation-explanation default show">
+                                            Arahkan kursor ke kotak pelanggaran untuk melihat penjelasan
+                                        </div>
 
-                <!-- Section 2: Bola Tangan -->
-                <section class="section" id="bola-tangan">
-                    <div class="section-header">
-                        <h2><i class="fas fa-hand-paper"></i> Bola Tangan</h2>
-                    </div>
-                    <div class="section-content">
-                        <div class="subsection" id="handball-info">
-                            <div class="subsection-title">
-                                <i class="fas fa-info-circle"></i> Informasi Dasar Bola Tangan
-                            </div>
+                                        <div class="field-controls">
+                                            <div class="field-control active" onclick="showFieldImage('volleyball', 'default')" data-field="volleyball-default">
+                                                <i class="fas fa-home"></i> Default
+                                            </div>
+                                            <div class="field-control" onmouseover="showFieldImage('volleyball', 'positions')" onmouseout="showFieldImage('volleyball', 'default')" data-field="volleyball-positions">
+                                                <i class="fas fa-users"></i> Posisi Pemain
+                                            </div>
+                                            <div class="field-control" onmouseover="showFieldImage('volleyball', 'dimensions')" onmouseout="showFieldImage('volleyball', 'default')" data-field="volleyball-dimensions">
+                                                <i class="fas fa-ruler-combined"></i> Ukuran
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <div class="content-block">
-                                <div class="sport-icon handball-icon">
-                                    <i class="fas fa-hand-paper"></i>
-                                </div>
-                                
-                                <p class="text-content">
-                                    <span class="highlight-text">Bola tangan adalah olahraga beregu yang dimainkan dengan tangan</span>, dimana dua tim berusaha mencetak gol dengan melempar bola ke gawang lawan.
-                                </p>
-
-                                <div class="comparison-table">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Aspek</th>
-                                                <th>Spesifikasi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>Jumlah Pemain</strong></td>
-                                                <td>7 pemain per tim (6 + 1 kiper)</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Durasi Pertandingan</strong></td>
-                                                <td>2 × 30 menit</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Ukuran Lapangan</strong></td>
-                                                <td>40m × 20m</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Ukuran Gawang</strong></td>
-                                                <td>3m × 2m</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Area Gawang</strong></td>
-                                                <td>Radius 6 meter dari gawang</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="field-container">
+                                        <img id="volleyball-field-image" src="../../assets/images/materi/field/4.png" alt="Lapangan Bola Voli" class="field-image">
+                                        <div class="field-description" id="volleyball-description">
+                                            Lapangan bola voli indoor standar dengan net di tengah
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -173,10 +356,6 @@
                     </div>
                     <div class="section-content">
                         <div class="subsection" id="basketball-info">
-                            <div class="subsection-title">
-                                <i class="fas fa-info-circle"></i> Informasi Dasar Bola Basket
-                            </div>
-
                             <div class="content-block">
                                 <div class="sport-icon basketball-icon">
                                     <i class="fas fa-basketball-ball"></i>
@@ -186,42 +365,84 @@
                                     <span class="highlight-text">Bola basket adalah olahraga beregu yang dimainkan oleh dua tim</span>, masing-masing berusaha mencetak poin dengan memasukkan bola ke dalam keranjang lawan.
                                 </p>
 
-                                <div class="comparison-table">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Aspek</th>
-                                                <th>Spesifikasi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>Jumlah Pemain</strong></td>
-                                                <td>5 pemain per tim di lapangan</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Durasi Pertandingan</strong></td>
-                                                <td>4 × 12 menit (NBA/FIBA)</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Ukuran Lapangan</strong></td>
-                                                <td>28m × 15m</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Tinggi Ring</strong></td>
-                                                <td>3.05 meter</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Poin</strong></td>
-                                                <td>2 poin (dalam), 3 poin (luar), 1 poin (free throw)</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="content-with-field">
+                                    <div class="table-with-controls">
+                                        <div class="comparison-table">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Aspek</th>
+                                                        <th>Spesifikasi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong>Jumlah Pemain</strong></td>
+                                                        <td>5 pemain per tim di lapangan</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Durasi Pertandingan</strong></td>
+                                                        <td>4 × 12 menit (NBA/FIBA)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Ukuran Lapangan</strong></td>
+                                                        <td>28m × 15m</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Tinggi Ring</strong></td>
+                                                        <td>3.05 meter</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Poin</strong></td>
+                                                        <td>2 poin (dalam), 3 poin (luar), 1 poin (free throw)</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="violations-box">
+                                            <div class="violations-title">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                                Pelanggaran Permainan Bola Basket
+                                            </div>
+                                            <div class="violations-grid">
+                                                <div class="violation-item" onmouseover="showViolationExplanation('basketball', 'traveling')" onmouseout="hideViolationExplanation('basketball')">Traveling</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('basketball', 'doubledribble')" onmouseout="hideViolationExplanation('basketball')">Double Dribble</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('basketball', 'threesecond')" onmouseout="hideViolationExplanation('basketball')">3-Second Violation</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('basketball', 'fivesecond')" onmouseout="hideViolationExplanation('basketball')">5-Second Violation</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('basketball', 'eightsecond')" onmouseout="hideViolationExplanation('basketball')">8-Second Violation</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('basketball', 'shotclock')" onmouseout="hideViolationExplanation('basketball')">24-Second Shot Clock</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('basketball', 'personal')" onmouseout="hideViolationExplanation('basketball')">Personal Foul</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('basketball', 'technical')" onmouseout="hideViolationExplanation('basketball')">Technical Foul</div>
+                                            </div>
+                                        </div>
+
+                                        <div id="basketball-explanation" class="violation-explanation default show">
+                                            Arahkan kursor ke kotak pelanggaran untuk melihat penjelasan
+                                        </div>
+
+                                        <div class="field-controls">
+                                            <div class="field-control active" onclick="showFieldImage('basketball', 'default')" data-field="basketball-default">
+                                                <i class="fas fa-home"></i> Default
+                                            </div>
+                                            <div class="field-control" onmouseover="showFieldImage('basketball', 'positions')" onmouseout="showFieldImage('basketball', 'default')" data-field="basketball-positions">
+                                                <i class="fas fa-users"></i> Posisi Pemain
+                                            </div>
+                                            <div class="field-control" onmouseover="showFieldImage('basketball', 'dimensions')" onmouseout="showFieldImage('basketball', 'default')" data-field="basketball-dimensions">
+                                                <i class="fas fa-ruler-combined"></i> Ukuran
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field-container">
+                                        <img id="basketball-field-image" src="../../assets/images/materi/field/7.png" alt="Lapangan Bola Basket" class="field-image">
+                                        <div class="field-description" id="basketball-description">
+                                            Lapangan bola basket indoor dengan dua ring di kedua ujung
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </section>
 
@@ -232,10 +453,6 @@
                     </div>
                     <div class="section-content">
                         <div class="subsection" id="football-info">
-                            <div class="subsection-title">
-                                <i class="fas fa-info-circle"></i> Informasi Dasar Sepak Bola
-                            </div>
-
                             <div class="content-block">
                                 <div class="sport-icon football-icon">
                                     <i class="fas fa-futbol"></i>
@@ -245,42 +462,84 @@
                                     <span class="highlight-text">Sepak bola adalah olahraga paling populer di dunia</span>, dimainkan oleh dua tim yang berusaha mencetak gol dengan menendang bola ke gawang lawan.
                                 </p>
 
-                                <div class="comparison-table">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Aspek</th>
-                                                <th>Spesifikasi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>Jumlah Pemain</strong></td>
-                                                <td>11 pemain per tim (10 + 1 kiper)</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Durasi Pertandingan</strong></td>
-                                                <td>2 × 45 menit + injury time</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Ukuran Lapangan</strong></td>
-                                                <td>100-110m × 64-75m</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Ukuran Gawang</strong></td>
-                                                <td>7.32m × 2.44m</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Area Penalti</strong></td>
-                                                <td>16.5m × 40.32m</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="content-with-field">
+                                    <div class="table-with-controls">
+                                        <div class="comparison-table">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Aspek</th>
+                                                        <th>Spesifikasi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong>Jumlah Pemain</strong></td>
+                                                        <td>11 pemain per tim (10 + 1 kiper)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Durasi Pertandingan</strong></td>
+                                                        <td>2 × 45 menit + injury time</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Ukuran Lapangan</strong></td>
+                                                        <td>100-110m × 64-75m</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Ukuran Gawang</strong></td>
+                                                        <td>7.32m × 2.44m</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Area Penalti</strong></td>
+                                                        <td>16.5m × 40.32m</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="violations-box">
+                                            <div class="violations-title">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                                Pelanggaran Permainan Sepak Bola
+                                            </div>
+                                            <div class="violations-grid">
+                                                <div class="violation-item" onmouseover="showViolationExplanation('football', 'offside')" onmouseout="hideViolationExplanation('football')">Offside</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('football', 'handball')" onmouseout="hideViolationExplanation('football')">Handball</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('football', 'foul')" onmouseout="hideViolationExplanation('football')">Foul Play</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('football', 'yellow')" onmouseout="hideViolationExplanation('football')">Yellow Card</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('football', 'red')" onmouseout="hideViolationExplanation('football')">Red Card</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('football', 'corner')" onmouseout="hideViolationExplanation('football')">Corner Kick</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('football', 'throwin')" onmouseout="hideViolationExplanation('football')">Throw-in</div>
+                                                <div class="violation-item" onmouseover="showViolationExplanation('football', 'penalty')" onmouseout="hideViolationExplanation('football')">Penalty Kick</div>
+                                            </div>
+                                        </div>
+
+                                        <div id="football-explanation" class="violation-explanation default show">
+                                            Arahkan kursor ke kotak pelanggaran untuk melihat penjelasan
+                                        </div>
+
+                                        <div class="field-controls">
+                                            <div class="field-control active" onclick="showFieldImage('football', 'default')" data-field="football-default">
+                                                <i class="fas fa-home"></i> Default
+                                            </div>
+                                            <div class="field-control" onmouseover="showFieldImage('football', 'positions')" onmouseout="showFieldImage('football', 'default')" data-field="football-positions">
+                                                <i class="fas fa-users"></i> Posisi Pemain
+                                            </div>
+                                            <div class="field-control" onmouseover="showFieldImage('football', 'dimensions')" onmouseout="showFieldImage('football', 'default')" data-field="football-dimensions">
+                                                <i class="fas fa-ruler-combined"></i> Ukuran
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field-container">
+                                        <img id="football-field-image" src="../../assets/images/materi/field/1.png" alt="Lapangan Sepak Bola" class="field-image">
+                                        <div class="field-description" id="football-description">
+                                            Lapangan sepak bola standar FIFA dengan rumput alami atau sintetis
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </section>
             </main>
@@ -292,13 +551,8 @@
                     <div class="toc-title">📚 Daftar Isi</div>
                     <ul class="toc-list">
                         <li><a href="#bola-voli">🏐 Bola Voli</a></li>
-                        <li><a href="#volleyball-info" class="subsection-link">Info Dasar</a></li>
-                        <li><a href="#bola-tangan">🤾 Bola Tangan</a></li>
-                        <li><a href="#handball-info" class="subsection-link">Info Dasar</a></li>
                         <li><a href="#bola-basket">🏀 Bola Basket</a></li>
-                        <li><a href="#basketball-info" class="subsection-link">Info Dasar</a></li>
                         <li><a href="#sepak-bola">⚽ Sepak Bola</a></li>
-                        <li><a href="#football-info" class="subsection-link">Info Dasar</a></li>
                     </ul>
                 </div>
 
@@ -316,5 +570,130 @@
 
     <script src="../../assets/js/navbar.js"></script>
     <script src="../../assets/js/materi-detail.js"></script>
+    <script>
+        // Field visualization functionality
+        const fieldImages = {
+            football: {
+                default: '../../assets/images/materi/field/1.png',
+                violations: '../../assets/images/materi/field/1.png', // Menggunakan gambar yang ada untuk sementara
+                positions: '../../assets/images/materi/field/2.png',
+                dimensions: '../../assets/images/materi/field/3.png'
+            },
+            volleyball: {
+                default: '../../assets/images/materi/field/4.png',
+                violations: '../../assets/images/materi/field/4.png', // Menggunakan gambar yang ada untuk sementara
+                positions: '../../assets/images/materi/field/5.png',
+                dimensions: '../../assets/images/materi/field/6.png'
+            },
+            basketball: {
+                default: '../../assets/images/materi/field/7.png',
+                violations: '../../assets/images/materi/field/7.png', // Menggunakan gambar yang ada untuk sementara
+                positions: '../../assets/images/materi/field/8.png',
+                dimensions: '../../assets/images/materi/field/9.png'
+            }
+        };
+
+        const fieldDescriptions = {
+            football: {
+                default: 'Lapangan sepak bola standar FIFA dengan rumput alami atau sintetis',
+                violations: 'Area pelanggaran: offside, handball, foul, dan pelanggaran lainnya',
+                positions: 'Posisi pemain dalam formasi 4-3-3 dan 4-4-2',
+                dimensions: 'Ukuran lapangan sepak bola: 100-110m × 64-75m'
+            },
+            volleyball: {
+                default: 'Lapangan bola voli indoor standar dengan net di tengah',
+                violations: 'Pelanggaran: menyentuh net, double hit, carry, foot fault',
+                positions: 'Posisi 6 pemain di setiap sisi lapangan',
+                dimensions: 'Ukuran lapangan bola voli: 18m × 9m dengan net setinggi 2.43m'
+            },
+            basketball: {
+                default: 'Lapangan bola basket indoor dengan dua ring di kedua ujung',
+                violations: 'Pelanggaran: traveling, double dribble, 3-second violation, foul',
+                positions: 'Posisi 5 pemain: Point Guard, Shooting Guard, Small Forward, Power Forward, Center',
+                dimensions: 'Ukuran lapangan bola basket: 28m × 15m dengan ring setinggi 3.05m'
+            }
+        };
+
+        const violationExplanations = {
+            volleyball: {
+                net: 'Pemain tidak boleh menyentuh net saat bermain bola atau menghalangi lawan.',
+                double: 'Pemain tidak boleh memukul bola dua kali berturut-turut dalam satu kontak.',
+                carry: 'Bola tidak boleh ditahan atau diangkat, harus dipukul dengan gerakan cepat.',
+                foot: 'Pemain tidak boleh menginjak atau melangkahi garis servis saat melakukan servis.',
+                fourhits: 'Setiap tim hanya boleh melakukan maksimal 3 sentuhan sebelum mengembalikan bola.',
+                backrow: 'Pemain belakang tidak boleh menyerang di atas net dari area depan.',
+                service: 'Servis tidak sah jika bola keluar lapangan atau tidak melewati net.',
+                rotation: 'Pemain harus berada di posisi rotasi yang benar saat servis dimulai.'
+            },
+            basketball: {
+                traveling: 'Pemain tidak boleh berjalan atau berlari sambil membawa bola tanpa men-dribble.',
+                doubledribble: 'Pemain tidak boleh men-dribble lagi setelah berhenti men-dribble.',
+                threesecond: 'Pemain penyerang tidak boleh berada di area paint lebih dari 3 detik.',
+                fivesecond: 'Pemain harus melepaskan bola dalam 5 detik saat dijaga ketat.',
+                eightsecond: 'Tim penyerang harus membawa bola ke area lawan dalam 8 detik.',
+                shotclock: 'Tim harus melakukan tembakan dalam 24 detik setelah menguasai bola.',
+                personal: 'Kontak fisik yang tidak diperbolehkan terhadap pemain lawan.',
+                technical: 'Pelanggaran unsportsmanlike conduct atau protes berlebihan kepada wasit.'
+            },
+            football: {
+                offside: 'Pemain tidak boleh berada lebih dekat ke gawang dari pemain belakang terakhir lawan.',
+                handball: 'Pemain lapangan tidak boleh menyentuh bola dengan tangan atau lengan.',
+                foul: 'Pelanggaran fisik seperti menendang, mendorong, atau menjegal pemain lawan.',
+                yellow: 'Kartu peringatan untuk pelanggaran seperti protes atau permainan kasar.',
+                red: 'Pemain dikeluarkan dari permainan karena pelanggaran serius atau kartu kuning kedua.',
+                corner: 'Tendangan sudut diberikan saat bola keluar melewati garis gawang dari tim bertahan.',
+                throwin: 'Lemparan ke dalam diberikan saat bola keluar melewati garis samping.',
+                penalty: 'Tendangan penalti diberikan untuk pelanggaran serius di dalam kotak penalti.'
+            }
+        };
+
+        function showViolationExplanation(sport, type) {
+            const explanationElement = document.getElementById(`${sport}-explanation`);
+            if (explanationElement && violationExplanations[sport] && violationExplanations[sport][type]) {
+                explanationElement.textContent = violationExplanations[sport][type];
+                explanationElement.classList.remove('default');
+                explanationElement.classList.add('show');
+            }
+        }
+
+        function hideViolationExplanation(sport) {
+            const explanationElement = document.getElementById(`${sport}-explanation`);
+            if (explanationElement) {
+                explanationElement.textContent = 'Arahkan kursor ke kotak pelanggaran untuk melihat penjelasan';
+                explanationElement.classList.add('default');
+                explanationElement.classList.add('show');
+            }
+        }
+
+        function showFieldImage(sport, type) {
+            const imageElement = document.getElementById(`${sport}-field-image`);
+            const descriptionElement = document.getElementById(`${sport}-description`);
+            
+            if (imageElement && fieldImages[sport] && fieldImages[sport][type]) {
+                imageElement.src = fieldImages[sport][type];
+                descriptionElement.textContent = fieldDescriptions[sport][type];
+            }
+
+            // Update active control
+            const controls = document.querySelectorAll(`[data-field^="${sport}"]`);
+            controls.forEach(control => {
+                control.classList.remove('active');
+            });
+            
+            if (type === 'default') {
+                const defaultControl = document.querySelector(`[data-field="${sport}-default"]`);
+                if (defaultControl) {
+                    defaultControl.classList.add('active');
+                }
+            }
+        }
+
+        // Initialize default images on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showFieldImage('football', 'default');
+            showFieldImage('volleyball', 'default');
+            showFieldImage('basketball', 'default');
+        });
+    </script>
 </body>
 </html>
