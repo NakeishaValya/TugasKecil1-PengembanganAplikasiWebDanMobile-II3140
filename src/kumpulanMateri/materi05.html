@@ -13,7 +13,7 @@
     <header>
         <div class="logo">PAWM</div>
         <nav class="navbar">
-            <a href="../../index.html">Home</a>
+            <a href="../index.html">Home</a>
             <a href="../jadwal.html">Jadwal</a>
             <a href="../materi.html" class="active">Materi</a>
         </nav>
@@ -22,7 +22,7 @@
     <div class="materi-container">
         <!-- Breadcrumb -->
         <div class="breadcrumb">
-            <a href="../../index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
             <span class="separator">></span>
             <a href="../materi.html">Materi</a>
             <span class="separator">></span>
@@ -36,7 +36,6 @@
         </div>
 
         <div class="content-wrapper">
-            <!-- Main Content -->
             <main class="main-content">
                 <!-- Section 1: Klasifikasi Cedera -->
                 <section class="section" id="klasifikasi-cedera">
@@ -71,304 +70,430 @@
                             </div>
                         </div>
 
-                        <!-- SubSection: Klasifikasi Berdasarkan Waktu -->
-                        <div class="subsection" id="klasifikasi-waktu">
-                            <div class="subsection-title">
-                                <i class="fas fa-clock"></i> Berdasarkan Waktu Terjadi
+                        <div class="classification-grid">
+                            <div class="classification-column" id="klasifikasi-waktu">
+                                <div class="classification-header">
+                                    <i class="fas fa-clock"></i>
+                                    <h3>Berdasarkan Waktu</h3>
+                                </div>
+                                
+                                <div class="injury-type-card chronic">
+                                    <div class="injury-type-badge">🔄 KRONIS</div>
+                                    <div class="injury-type-content">
+                                        <h4>Overuse Injury</h4>
+                                        <p><strong>Ciri:</strong> Berkembang bertahap</p>
+                                        <p><strong>Penyebab:</strong> Gerakan berulang berkepanjangan</p>
+                                        <div class="sport-examples">
+                                            <span class="sport-tag">Berenang</span>
+                                            <span class="sport-tag">Berlari</span>
+                                            <span class="sport-tag">Bersepeda</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="injury-type-card acute">
+                                    <div class="injury-type-badge">⚡ AKUT</div>
+                                    <div class="injury-type-content">
+                                        <h4>Traumatic Injury</h4>
+                                        <p><strong>Ciri:</strong> Terjadi mendadak</p>
+                                        <p><strong>Penyebab:</strong> Trauma/benturan langsung</p>
+                                        <div class="sport-examples">
+                                            <span class="sport-tag">Sepak Bola</span>
+                                            <span class="sport-tag">Basket</span>
+                                            <span class="sport-tag">Rugby</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="content-block">
-                                <div class="comparison-table">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Jenis Cedera</th>
-                                                <th>Karakteristik</th>
-                                                <th>Penyebab</th>
-                                                <th>Contoh Olahraga</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong style="color: #dc3545;">Cedera Kronis</strong></td>
-                                                <td>
-                                                    Disebabkan oleh <span class="emphasis">gerakan berulang dan berkepanjangan</span><br>
-                                                    <small>Disebut juga <em>overuse injury</em></small>
-                                                </td>
-                                                <td>Penggunaan satu bagian tubuh secara berlebihan dalam jangka waktu lama</td>
-                                                <td>Berenang, Berlari, Bersepeda</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong style="color: #ffc107;">Cedera Akut</strong></td>
-                                                <td>
-                                                    Cedera yang terjadi <span class="emphasis">secara tiba-tiba</span><br>
-                                                    <small>Dikaitkan dengan trauma langsung</small>
-                                                </td>
-                                                <td>Terjatuh, bertabrakan dengan pemain lain</td>
-                                                <td>Sepak bola, Basket, Rugby</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="classification-column" id="klasifikasi-penyebab">
+                                <div class="classification-header">
+                                    <i class="fas fa-search-plus"></i>
+                                    <h3>Berdasarkan Penyebab</h3>
                                 </div>
 
-                                <div class="technique-card">
-                                    <div class="technique-name">🔄 Cedera Kronis (Overuse Injury)</div>
-                                    <p class="text-content">
-                                        Cedera yang berkembang secara bertahap akibat <span class="emphasis">stres berulang pada jaringan tubuh</span>. Sering terjadi pada olahraga endurance yang melibatkan gerakan repetitif.
-                                    </p>
+                                <div class="factor-group external">
+                                    <div class="factor-title">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        <span>Faktor Eksogen</span>
+                                        <small>(dari luar)</small>
+                                    </div>
+                                    <div class="factor-list">
+                                        <div class="factor-item">
+                                            <i class="fas fa-weight-hanging"></i>
+                                            <div>
+                                                <strong>Beban Berlebihan</strong>
+                                                <span>Volume/intensitas ≥ kemampuan</span>
+                                            </div>
+                                        </div>
+                                        <div class="factor-item">
+                                            <i class="fas fa-tools"></i>
+                                            <div>
+                                                <strong>Perlengkapan Buruk</strong>
+                                                <span>Sepatu, alat tidak sesuai</span>
+                                            </div>
+                                        </div>
+                                        <div class="factor-item">
+                                            <i class="fas fa-building"></i>
+                                            <div>
+                                                <strong>Fasilitas Buruk</strong>
+                                                <span>Lapangan rusak, cuaca ekstrem</span>
+                                            </div>
+                                        </div>
+                                        <div class="factor-item">
+                                            <i class="fas fa-futbol"></i>
+                                            <div>
+                                                <strong>Jenis Olahraga</strong>
+                                                <span>Tingkat risiko berbeda</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="technique-card">
-                                    <div class="technique-name">⚡ Cedera Akut (Traumatic Injury)</div>
-                                    <p class="text-content">
-                                        Cedera yang terjadi mendadak akibat <span class="emphasis">trauma atau benturan langsung</span>. Contoh: tulang retak, otot sobek, atau memar.
-                                    </p>
+                                <div class="factor-group internal">
+                                    <div class="factor-title">
+                                        <i class="fas fa-user"></i>
+                                        <span>Faktor Endogen</span>
+                                        <small>(dari dalam)</small>
+                                    </div>
+                                    <div class="factor-list compact">
+                                        <div class="factor-item-small">
+                                            <i class="fas fa-dna"></i>
+                                            <span><strong>Genetik</strong> - Riwayat keluarga</span>
+                                        </div>
+                                        <div class="factor-item-small">
+                                            <i class="fas fa-heartbeat"></i>
+                                            <span><strong>Kesehatan</strong> - Status umum</span>
+                                        </div>
+                                        <div class="factor-item-small">
+                                            <i class="fas fa-birthday-cake"></i>
+                                            <span><strong>Usia</strong> - Fleksibilitas berbeda</span>
+                                        </div>
+                                        <div class="factor-item-small">
+                                            <i class="fas fa-dumbbell"></i>
+                                            <span><strong>Kebugaran</strong> - Kondisi fisik</span>
+                                        </div>
+                                        <div class="factor-item-small">
+                                            <i class="fas fa-venus-mars"></i>
+                                            <span><strong>Gender</strong> - Anatomis/hormonal</span>
+                                        </div>
+                                        <div class="factor-item-small">
+                                            <i class="fas fa-history"></i>
+                                            <span><strong>Riwayat</strong> - Cedera sebelumnya</span>
+                                        </div>
+                                        <div class="factor-item-small">
+                                            <i class="fas fa-brain"></i>
+                                            <span><strong>Psikologi</strong> - Stres mental</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Column 3: Berdasarkan Jenis -->
+                            <div class="classification-column" id="klasifikasi-jenis">
+                                <div class="classification-header">
+                                    <i class="fas fa-list-alt"></i>
+                                    <h3>Berdasarkan Jenis</h3>
+                                </div>
+
+                                <div class="injury-types-grid">
+                                    <div class="injury-type-item mild">
+                                        <i class="fas fa-circle"></i>
+                                        <div>
+                                            <strong>Kram Otot</strong>
+                                            <span>Kontraksi tidak terkendali</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="injury-type-item mild">
+                                        <i class="fas fa-circle"></i>
+                                        <div>
+                                            <strong>Kontusio</strong>
+                                            <span>Memar benturan tumpul</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="injury-type-item mild">
+                                        <i class="fas fa-circle"></i>
+                                        <div>
+                                            <strong>Ekskoriasi</strong>
+                                            <span>Lecet gesekan</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="injury-type-item moderate">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <div>
+                                            <strong>Laserasi</strong>
+                                            <span>Luka robek tajam</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="injury-type-item moderate">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <div>
+                                            <strong>Sprain</strong>
+                                            <span>Robekan ligamen</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="injury-type-item moderate">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <div>
+                                            <strong>Strain</strong>
+                                            <span>Robekan otot/tendon</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="injury-type-item severe">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <div>
+                                            <strong>Fraktura</strong>
+                                            <span>Patah tulang</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="injury-type-item severe">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <div>
+                                            <strong>Dislokasi</strong>
+                                            <span>Sendi bergeser</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="injury-type-item critical">
+                                        <i class="fas fa-skull-crossbones"></i>
+                                        <div>
+                                            <strong>Concussion</strong>
+                                            <span>Cedera kepala serius</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="severity-legend">
+                                    <h4>🚨 Tingkat Keparahan</h4>
+                                    <div class="legend-items">
+                                        <div class="legend-item">
+                                            <span class="legend-color mild"></span>
+                                            <span>Ringan</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color moderate"></span>
+                                            <span>Sedang</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color severe"></span>
+                                            <span>Berat</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color critical"></span>
+                                            <span>Kritis</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- SubSection: Klasifikasi Berdasarkan Penyebab -->
-                        <div class="subsection" id="klasifikasi-penyebab">
-                            <div class="subsection-title">
-                                <i class="fas fa-search-plus"></i> Berdasarkan Penyebab
-                            </div>
-
-                            <div class="content-block">
-                                <div class="comparison-table">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Kategori</th>
-                                                <th>Faktor</th>
-                                                <th>Penjelasan</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td rowspan="4"><strong style="color: #dc3545;">Faktor Eksogen<br><small>(dari luar)</small></strong></td>
-                                                <td><span class="emphasis">Beban Berlebihan</span></td>
-                                                <td>Intensitas atau volume latihan melebihi kemampuan</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="emphasis">Perlengkapan Tidak Sesuai</span></td>
-                                                <td>Sepatu, pakaian, atau alat olahraga yang tidak tepat</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="emphasis">Fasilitas Buruk</span></td>
-                                                <td>Lapangan rusak, pencahayaan kurang, cuaca ekstrem</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="emphasis">Jenis Olahraga</span></td>
-                                                <td>Tingkat risiko cedera berbeda per cabang olahraga</td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="7"><strong style="color: #28a745;">Faktor Endogen<br><small>(dari dalam diri)</small></strong></td>
-                                                <td><span class="emphasis">Riwayat Keluarga</span></td>
-                                                <td>Predisposisi genetik terhadap cedera tertentu</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="emphasis">Kondisi Kesehatan</span></td>
-                                                <td>Status kesehatan umum dan penyakit penyerta</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="emphasis">Usia</span></td>
-                                                <td>Fleksibilitas dan recovery berbeda per kelompok usia</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="emphasis">Tingkat Kebugaran</span></td>
-                                                <td>Kondisi fisik yang tidak memadai</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="emphasis">Jenis Kelamin</span></td>
-                                                <td>Perbedaan anatomis dan hormonal</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="emphasis">Riwayat Cedera</span></td>
-                                                <td>Cedera sebelumnya meningkatkan risiko cedera ulang</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="emphasis">Kondisi Psikologis</span></td>
-                                                <td>Stres, kelelahan mental, kurang konsentrasi</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- SubSection: Klasifikasi Jenis Cedera -->
-                        <div class="subsection" id="klasifikasi-jenis">
-                            <div class="subsection-title">
-                                <i class="fas fa-list-alt"></i> Berdasarkan Jenis Cedera
-                            </div>
-
-                            <div class="content-block">
-                                <h3 class="block-title">🏥 9 Jenis Cedera Utama</h3>
-
-                                <div class="comparison-table">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Jenis Cedera</th>
-                                                <th>Definisi</th>
-                                                <th>Contoh</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>Kram Otot</strong></td>
-                                                <td>Kontraksi otot tidak terkendali</td>
-                                                <td>Kram betis saat lari marathon</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Kontusio</strong></td>
-                                                <td>Memar akibat benturan dengan benda tumpul</td>
-                                                <td>Memar di paha akibat tendangan</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Ekskoriasi</strong></td>
-                                                <td>Lecet akibat gesekan dengan benda tumpul</td>
-                                                <td>Lecet di lutut saat terjatuh</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Laserasi</strong></td>
-                                                <td>Luka robek akibat benda tajam</td>
-                                                <td>Luka sayatan dari pecahan kaca</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Sprain</strong></td>
-                                                <td>Tarikan atau robekan pada ligamen sendi</td>
-                                                <td>Cedera ankle (pergelangan kaki)</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Strain</strong></td>
-                                                <td>Tarikan atau robekan pada otot atau tendon</td>
-                                                <td>Cedera hamstring (otot paha belakang)</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Fraktura</strong></td>
-                                                <td>Kerusakan atau patah pada tulang</td>
-                                                <td>Patah tulang lengan akibat jatuh</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Dislokasi</strong></td>
-                                                <td>Posisi sendi bergeser dari tempat seharusnya</td>
-                                                <td>Dislokasi bahu, dislokasi lutut</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Concussion</strong></td>
-                                                <td>Cedera kepala karena benturan keras</td>
-                                                <td>Gegar otak dalam olahraga kontak</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <div class="tips-box">
-                                    <h4>⚠️ Cedera Serius</h4>
-                                    <p><strong>Concussion</strong> memiliki gejala seperti <span class="emphasis">kebingungan, pingsan, hingga kematian</span>. Memerlukan penanganan medis segera!</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- SubSection: Cedera Umum -->
                         <div class="subsection" id="cedera-umum">
                             <div class="subsection-title">
                                 <i class="fas fa-exclamation-triangle"></i> Cedera Olahraga yang Umum Terjadi
                             </div>
 
-                            <div class="content-block">
-                                <h3 class="block-title">🏃 12 Cedera Olahraga Tersering</h3>
-
-                                <div class="comparison-table">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Nama Cedera</th>
-                                                <th>Area Tubuh</th>
-                                                <th>Deskripsi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>Groin Strains</strong></td>
-                                                <td>Pangkal paha</td>
-                                                <td>Nyeri akibat penekanan pada selangkangan hingga otot tegang/robek</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Shin Splint</strong></td>
-                                                <td>Tulang kering</td>
-                                                <td>Nyeri tungkai bawah sisi depan akibat lari berlebihan</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Neck Strain</strong></td>
-                                                <td>Leher</td>
-                                                <td>Kelelahan atau ketegangan otot leher</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Lower Back Injury</strong></td>
-                                                <td>Punggung bawah</td>
-                                                <td>Cedera tulang belakang bagian bawah</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Pulled Muscles</strong></td>
-                                                <td>Punggung & leher</td>
-                                                <td>Ketegangan otot yang sering terjadi</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Fracture Bone</strong></td>
-                                                <td>Seluruh tubuh</td>
-                                                <td>Patah tulang akibat trauma</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Rotator Cuff Tendinopathy</strong></td>
-                                                <td>Bahu</td>
-                                                <td>Peradangan pada sendi bahu yang berputar</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Tennis Elbow</strong></td>
-                                                <td>Siku</td>
-                                                <td>Cedera siku yang umum dialami pemain tenis</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Ankle Sprain</strong></td>
-                                                <td>Pergelangan kaki</td>
-                                                <td>Cedera keseleo pada pergelangan kaki</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Runner's Knee</strong></td>
-                                                <td>Lutut</td>
-                                                <td>Nyeri di sekitar lutut yang sering dialami pelari</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Achilles Tendinopathy</strong></td>
-                                                <td>Tendon Achilles</td>
-                                                <td>Iritasi dan peradangan akibat kerja otot berlebihan</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Knee Ligament Rupture</strong></td>
-                                                <td>Lutut</td>
-                                                <td>Robeknya ligamen (ACL, PCL, LCL, MCL) dengan nyeri luar biasa</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="injury-visualizer">
+                                <div class="muscle-map-container">
+                                    <div class="muscle-base">
+                                        <img src="../../assets/images/materi/muscle/allMuscle.PNG" alt="Base Muscle Diagram" class="base-muscle-img">
+                                        <img src="../../assets/images/materi/muscle/4.png" alt="Cedera Kepala" class="muscle-overlay" data-muscle="4" style="display: none;">
+                                        <img src="../../assets/images/materi/muscle/5.png" alt="Rotator Cuff" class="muscle-overlay" data-muscle="5" style="display: none;">
+                                        <img src="../../assets/images/materi/muscle/6.png" alt="Overuse Injuries" class="muscle-overlay" data-muscle="6" style="display: none;">
+                                        <img src="../../assets/images/materi/muscle/7.png" alt="Carpal Tunnel" class="muscle-overlay" data-muscle="7" style="display: none;">
+                                        <img src="../../assets/images/materi/muscle/8.png" alt="Groin Strains" class="muscle-overlay" data-muscle="8" style="display: none;">
+                                        <img src="../../assets/images/materi/muscle/9.png" alt="Achilles Tendinopathy" class="muscle-overlay" data-muscle="9" style="display: none;">
+                                        <img src="../../assets/images/materi/muscle/10.png" alt="Ankle Sprain" class="muscle-overlay" data-muscle="10" style="display: none;">
+                                        <img src="../../assets/images/materi/muscle/11.png" alt="Neck Strain" class="muscle-overlay" data-muscle="11" style="display: none;">
+                                        <img src="../../assets/images/materi/muscle/12.png" alt="Lower Back Injury" class="muscle-overlay" data-muscle="12" style="display: none;">
+                                        <img src="../../assets/images/materi/muscle/13.png" alt="Lower Back Pain" class="muscle-overlay" data-muscle="13" style="display: none;">
+                                        <img src="../../assets/images/materi/muscle/14.png" alt="Shin Splint" class="muscle-overlay" data-muscle="14" style="display: none;">
+                                        <img src="../../assets/images/materi/muscle/15.png" alt="Muscle Fatigue" class="muscle-overlay" data-muscle="15" style="display: none;">
+                                    </div>
+                                    
+                                    <div class="injury-buttons-grid">
+                                        <button class="injury-btn" data-muscle="4" title="Cedera Kepala (Concussion)">
+                                            <i class="fas fa-brain"></i>
+                                            <span>Cedera Kepala</span>
+                                        </button>
+                                        
+                                        <button class="injury-btn" data-muscle="5" title="Rotator Cuff Tendinopathy">
+                                            <i class="fas fa-dumbbell"></i>
+                                            <span>Rotator Cuff</span>
+                                        </button>
+                                        
+                                        <button class="injury-btn" data-muscle="6" title="Overuse Injuries">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            <span>Overuse Injuries</span>
+                                        </button>
+                                        
+                                        <button class="injury-btn" data-muscle="7" title="Carpal Tunnel Syndrome">
+                                            <i class="fas fa-hand-paper"></i>
+                                            <span>Carpal Tunnel</span>
+                                        </button>
+                                        
+                                        <button class="injury-btn" data-muscle="8" title="Groin Strains">
+                                            <i class="fas fa-running"></i>
+                                            <span>Groin Strains</span>
+                                        </button>
+                                        
+                                        <button class="injury-btn" data-muscle="9" title="Achilles Tendinopathy">
+                                            <i class="fas fa-shoe-prints"></i>
+                                            <span>Achilles</span>
+                                        </button>
+                                        
+                                        <button class="injury-btn" data-muscle="10" title="Ankle Sprain">
+                                            <i class="fas fa-socks"></i>
+                                            <span>Ankle Sprain</span>
+                                        </button>
+                                        
+                                        <button class="injury-btn" data-muscle="11" title="Neck Strain">
+                                            <i class="fas fa-user-md"></i>
+                                            <span>Neck Strain</span>
+                                        </button>
+                                        
+                                        <button class="injury-btn" data-muscle="12" title="Lower Back Injury">
+                                            <i class="fas fa-bed"></i>
+                                            <span>Lower Back Injury</span>
+                                        </button>
+                                        
+                                        <button class="injury-btn" data-muscle="13" title="Lower Back Pain">
+                                            <i class="fas fa-plus-square"></i>
+                                            <span>Lower Back Pain</span>
+                                        </button>
+                                        
+                                        <button class="injury-btn" data-muscle="14" title="Shin Splint">
+                                            <i class="fas fa-bone"></i>
+                                            <span>Shin Splint</span>
+                                        </button>
+                                        
+                                        <button class="injury-btn" data-muscle="15" title="Muscle Fatigue">
+                                            <i class="fas fa-battery-quarter"></i>
+                                            <span>Muscle Fatigue</span>
+                                        </button>
+                                    </div>
+                                        <circle cx="175" cy="520" r="15" fill="#ffebcd" stroke="#8b4513" stroke-width="2" class="injury-hotspot" data-injury="ankle-right"/>
                                 </div>
 
-                                <div class="tips-box">
-                                    <h4>🎯 Cedera Berdasarkan Olahraga</h4>
-                                    <ul class="unordered-list">
-                                        <li><span class="emphasis">Pelari:</span> Shin Splint, Runner's Knee, Achilles Tendinopathy</li>
-                                        <li><span class="emphasis">Sepak Bola:</span> Groin Strains, Ankle Sprain, Knee Ligament Rupture</li>
-                                        <li><span class="emphasis">Tenis:</span> Tennis Elbow, Rotator Cuff Tendinopathy</li>
-                                        <li><span class="emphasis">Basket:</span> Ankle Sprain, Knee Ligament Rupture, Pulled Muscles</li>
-                                    </ul>
+                                <div id="injury-info" class="injury-info-panel">
+                                    <h3 id="injury-title">Hover Button untuk Melihat Area Cedera</h3>
+                                    <p id="injury-description">Arahkan mouse ke button cedera untuk melihat visualisasi pada gambar tubuh dan informasi detail.</p>
+                                    <div id="injury-prevention"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="subsection" id="sport-injuries">
+                            <div class="subsection-title">
+                                <i class="fas fa-running"></i> Cedera Berdasarkan Jenis Olahraga
+                            </div>
+
+                            <div class="injury-visualizer">
+                                <p class="text-content">
+                                    Pilih jenis olahraga untuk melihat <span class="highlight-text">cedera yang umum terjadi</span>:
+                                </p>
+
+                                <div class="sport-injury-selector">
+                                    <div class="sport-option" data-sport="football">
+                                        <i class="fas fa-futbol" style="font-size: 2em; color: #28a745;"></i>
+                                        <div>Sepak Bola</div>
+                                    </div>
+                                    <div class="sport-option" data-sport="basketball">
+                                        <i class="fas fa-basketball-ball" style="font-size: 2em; color: #ff9f43;"></i>
+                                        <div>Basket</div>
+                                    </div>
+                                    <div class="sport-option" data-sport="running">
+                                        <i class="fas fa-running" style="font-size: 2em; color: #3742fa;"></i>
+                                        <div>Lari</div>
+                                        <div>Renang</div>
+                                    </div>
+                                    <div class="sport-option" data-sport="volleyball">
+                                        <i class="fas fa-volleyball-ball" style="font-size: 2em; color: #ff6b6b;"></i>
+                                        <div>Voli</div>
+                                    </div>
+                                </div>
+
+                                <div id="sport-injury-info" class="sport-injury-info">
+                                    <h3 id="sport-title">Pilih Olahraga</h3>
+                                    <div id="sport-common-injuries"></div>
+                                    <div id="sport-prevention-tips"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SubSection: Injury Severity Assessment -->
+                        <div class="subsection" id="severity-assessment">
+                            <div class="subsection-title">
+                                <i class="fas fa-stethoscope"></i> Penilaian Tingkat Cedera
+                            </div>
+
+                            <div class="injury-severity-tool">
+                                <h3>🩺 Evaluasi Cedera Anda</h3>
+                                <p class="text-content">
+                                    Jawab pertanyaan berikut untuk mengetahui <span class="highlight-text">tingkat keparahan cedera</span> Anda:
+                                </p>
+
+                                <div class="severity-questions">
+                                    <div class="severity-question">
+                                        <strong>1. Apakah Anda masih bisa berjalan normal?</strong>
+                                        <div class="severity-options">
+                                            <div class="severity-option" data-question="1" data-score="1">Ya, normal</div>
+                                            <div class="severity-option" data-question="1" data-score="2">Sedikit pincang</div>
+                                            <div class="severity-option" data-question="1" data-score="3">Sangat sulit berjalan</div>
+                                            <div class="severity-option" data-question="1" data-score="4">Tidak bisa berjalan</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="severity-question">
+                                        <strong>2. Bagaimana tingkat nyeri yang Anda rasakan?</strong>
+                                        <div class="severity-options">
+                                            <div class="severity-option" data-question="2" data-score="1">Tidak nyeri</div>
+                                            <div class="severity-option" data-question="2" data-score="2">Nyeri ringan</div>
+                                            <div class="severity-option" data-question="2" data-score="3">Nyeri sedang</div>
+                                            <div class="severity-option" data-question="2" data-score="4">Nyeri sangat berat</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="severity-question">
+                                        <strong>3. Apakah ada pembengkakan?</strong>
+                                        <div class="severity-options">
+                                            <div class="severity-option" data-question="3" data-score="1">Tidak ada</div>
+                                            <div class="severity-option" data-question="3" data-score="2">Sedikit bengkak</div>
+                                            <div class="severity-option" data-question="3" data-score="3">Bengkak jelas terlihat</div>
+                                            <div class="severity-option" data-question="3" data-score="4">Sangat bengkak</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="severity-question">
+                                        <strong>4. Kapan cedera terjadi?</strong>
+                                        <div class="severity-options">
+                                            <div class="severity-option" data-question="4" data-score="1">Lebih dari seminggu</div>
+                                            <div class="severity-option" data-question="4" data-score="2">2-7 hari lalu</div>
+                                            <div class="severity-option" data-question="4" data-score="3">Kemarin</div>
+                                            <div class="severity-option" data-question="4" data-score="4">Hari ini</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="simulate-btn" onclick="assessInjury()" style="margin-top: 20px;">
+                                    <i class="fas fa-calculator"></i> Evaluasi Tingkat Cedera
+                                </button>
+
+                                <div id="severity-result" class="severity-result">
+                                    <h3 id="severity-level">Hasil Evaluasi</h3>
+                                    <p id="severity-description">Deskripsi tingkat cedera</p>
+                                    <div id="severity-recommendations">Rekomendasi penanganan</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Section 2: Pencegahan Cedera -->
+                <!-- Section 3: Pencegahan Cedera -->
                 <section class="section" id="pencegahan-cedera">
                     <div class="section-header">
                         <h2><i class="fas fa-shield-alt"></i> Section 2: Pencegahan Cedera</h2>
@@ -385,41 +510,116 @@
                                     Untuk cedera fisik akut seperti keseleo atau memar, mengaplikasikan metode <span class="highlight-text">RICE</span> segera setelah cedera akan mengurangi tingkat pembengkakan.
                                 </p>
 
-                                <div class="technique-card">
-                                    <div class="technique-name">🛌 R - Rest (Istirahat)</div>
-                                    <p class="text-content">
-                                        <span class="emphasis">Hentikan aktivitas saat terjadi rasa sakit atau nyeri.</span> Melanjutkan aktivitas dapat memperparah cedera.
-                                    </p>
+                                <div class="rice-simulator">
+                                    <h3>🩺 Simulator Metode RICE Interaktif</h3>
+                                    <p>Klik pada setiap langkah untuk mempelajari teknik yang tepat:</p>
+
+                                    <div class="rice-steps">
+                                        <div class="rice-step" data-step="rest">
+                                            <div class="rice-step-icon">🛌</div>
+                                            <div class="rice-step-title">REST</div>
+                                            <div>Istirahat</div>
+                                        </div>
+                                        <div class="rice-step" data-step="ice">
+                                            <div class="rice-step-icon">🧊</div>
+                                            <div class="rice-step-title">ICE</div>
+                                            <div>Es</div>
+                                        </div>
+                                        <div class="rice-step" data-step="compression">
+                                            <div class="rice-step-icon">🩹</div>
+                                            <div class="rice-step-title">COMPRESSION</div>
+                                            <div>Kompresi</div>
+                                        </div>
+                                        <div class="rice-step" data-step="elevation">
+                                            <div class="rice-step-icon">⬆️</div>
+                                            <div class="rice-step-title">ELEVATION</div>
+                                            <div>Elevasi</div>
+                                        </div>
+                                    </div>
+
+                                    <div id="rice-rest" class="rice-detail">
+                                        <h4>🛌 REST - Istirahat</h4>
+                                        <p><strong>Langkah:</strong> <span class="emphasis">Hentikan aktivitas saat terjadi rasa sakit atau nyeri.</span></p>
+                                        <p><strong>Durasi:</strong> Segera setelah cedera terjadi</p>
+                                        <p><strong>Tujuan:</strong> Mencegah cedera lebih lanjut dan memulai proses penyembuhan</p>
+                                        <div class="injury-alert">
+                                            <i class="fas fa-exclamation-triangle injury-alert-icon"></i>
+                                            <div>Melanjutkan aktivitas dapat memperparah cedera dan memperlambat penyembuhan!</div>
+                                        </div>
+                                    </div>
+
+                                    <div id="rice-ice" class="rice-detail">
+                                        <h4>🧊 ICE - Es</h4>
+                                        <p><strong>Langkah:</strong> Kompres area cedera dengan es selama <span class="emphasis">10-15 menit</span></p>
+                                        <p><strong>Frekuensi:</strong> Setiap 2 jam selama 24-48 jam pertama</p>
+                                        <p><strong>Cara:</strong> Gunakan kain untuk membalut es, jangan tempel langsung ke kulit</p>
+                                        <p><strong>Tujuan:</strong> Mengurangi pembengkakan, nyeri, dan peradangan</p>
+                                        <div class="injury-alert">
+                                            <i class="fas fa-snowflake injury-alert-icon"></i>
+                                            <div>Jangan gunakan es lebih dari 20 menit untuk menghindari frostbite!</div>
+                                        </div>
+                                    </div>
+
+                                    <div id="rice-compression" class="rice-detail">
+                                        <h4>🩹 COMPRESSION - Kompresi</h4>
+                                        <p><strong>Langkah:</strong> Beri tekanan dengan <span class="emphasis">perban elastis</span></p>
+                                        <p><strong>Tingkat:</strong> Kencang tapi tidak terlalu ketat</p>
+                                        <p><strong>Indikator:</strong> Masih bisa memasukkan jari di bawah perban</p>
+                                        <p><strong>Tujuan:</strong> Mengurangi pembengkakan dan memberikan support</p>
+                                        <div class="injury-alert">
+                                            <i class="fas fa-heart-pulse injury-alert-icon"></i>
+                                            <div>Jika terasa kebas atau kesemutan, longgarkan perban!</div>
+                                        </div>
+                                    </div>
+
+                                    <div id="rice-elevation" class="rice-detail">
+                                        <h4>⬆️ ELEVATION - Elevasi</h4>
+                                        <p><strong>Langkah:</strong> Angkat area cedera <span class="emphasis">lebih tinggi dari jantung</span></p>
+                                        <p><strong>Posisi:</strong> Gunakan bantal atau penyangga</p>
+                                        <p><strong>Durasi:</strong> Saat istirahat dan tidur</p>
+                                        <p><strong>Tujuan:</strong> Membantu aliran darah kembali ke jantung, mengurangi pembengkakan</p>
+                                        <div class="tips-box">
+                                            <h4>💡 Tips</h4>
+                                            <p>Elevasi paling efektif untuk cedera di kaki dan tangan</p>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="technique-card">
-                                    <div class="technique-name">🧊 I - Ice (Es)</div>
-                                    <p class="text-content">
-                                        Kompres area cedera dengan es selama <span class="emphasis">10 menit</span>. Gunakan kain untuk membalut es dan hindari menempelkannya langsung ke kulit. Ulangi kompres <span class="emphasis">setiap dua jam selama 24-48 jam pertama</span>.
-                                    </p>
-                                </div>
+                                <!-- Recovery Timeline -->
+                                <div class="injury-timeline">
+                                    <h3>📈 Timeline Pemulihan Cedera</h3>
+                                    <p>Simulasi proses pemulihan cedera dengan metode RICE:</p>
+                                    
+                                    <button class="simulate-btn" onclick="startRecoverySimulation()" style="margin-bottom: 20px;">
+                                        <i class="fas fa-play"></i> Mulai Simulasi Pemulihan
+                                    </button>
 
-                                <div class="technique-card">
-                                    <div class="technique-name">🩹 C - Compression (Kompresi)</div>
-                                    <p class="text-content">
-                                        Beri sedikit tekanan di area cedera dengan menggunakan <span class="emphasis">perban elastis</span>. Hindari membalut terlalu kencang agar tidak mengganggu aliran darah.
-                                    </p>
-                                </div>
+                                    <div class="timeline-track">
+                                        <div id="recovery-progress" class="timeline-progress"></div>
+                                    </div>
 
-                                <div class="technique-card">
-                                    <div class="technique-name">⬆️ E - Elevation (Elevasi)</div>
-                                    <p class="text-content">
-                                        Angkat daerah yang cedera <span class="emphasis">lebih tinggi dari posisi jantung</span> untuk membantu membatasi aliran darah dan pembengkakan.
-                                    </p>
-                                </div>
+                                    <div class="timeline-markers">
+                                        <div class="timeline-marker">
+                                            <div><strong>Hari 1-2</strong></div>
+                                            <div>Fase Akut</div>
+                                        </div>
+                                        <div class="timeline-marker">
+                                            <div><strong>Hari 3-7</strong></div>
+                                            <div>Fase Subakut</div>
+                                        </div>
+                                        <div class="timeline-marker">
+                                            <div><strong>Minggu 2-6</strong></div>
+                                            <div>Fase Pemulihan</div>
+                                        </div>
+                                        <div class="timeline-marker">
+                                            <div><strong>Bulan 2+</strong></div>
+                                            <div>Fully Recovered</div>
+                                        </div>
+                                    </div>
 
-                                <div class="tips-box">
-                                    <h4>⏰ Timeline Aplikasi RICE</h4>
-                                    <ul class="unordered-list">
-                                        <li><span class="emphasis">0-15 menit:</span> Segera aplikasikan RICE</li>
-                                        <li><span class="emphasis">24-48 jam:</span> Lanjutkan kompres es setiap 2 jam</li>
-                                        <li><span class="emphasis">Setelah 48 jam:</span> Evaluasi kondisi, konsultasi medis jika perlu</li>
-                                    </ul>
+                                    <div id="timeline-status" style="text-align: center; margin-top: 15px; font-weight: 600;">
+                                        Klik tombol untuk memulai simulasi
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -546,6 +746,78 @@
                                         Pencegahan cedera memerlukan pendekatan menyeluruh: <span class="emphasis">fisik, mental, sosial, dan lingkungan</span>. Semua faktor saling berkaitan dan mempengaruhi risiko cedera.
                                     </p>
                                 </div>
+
+                                <!-- Prevention Checklist -->
+                                <div class="prevention-checklist">
+                                    <h3>✅ Checklist Pencegahan Cedera</h3>
+                                    <p>Centang setiap item yang sudah Anda lakukan sebelum berolahraga:</p>
+
+                                    <div class="checklist-item" data-item="1">
+                                        <div class="checklist-checkbox">
+                                            <i class="fas fa-check" style="display: none;"></i>
+                                        </div>
+                                        <div>Melakukan pemanasan selama 10-15 menit</div>
+                                    </div>
+
+                                    <div class="checklist-item" data-item="2">
+                                        <div class="checklist-checkbox">
+                                            <i class="fas fa-check" style="display: none;"></i>
+                                        </div>
+                                        <div>Memeriksa kondisi lapangan/fasilitas olahraga</div>
+                                    </div>
+
+                                    <div class="checklist-item" data-item="3">
+                                        <div class="checklist-checkbox">
+                                            <i class="fas fa-check" style="display: none;"></i>
+                                        </div>
+                                        <div>Menggunakan perlengkapan safety yang sesuai</div>
+                                    </div>
+
+                                    <div class="checklist-item" data-item="4">
+                                        <div class="checklist-checkbox">
+                                            <i class="fas fa-check" style="display: none;"></i>
+                                        </div>
+                                        <div>Memastikan hidrasi yang cukup</div>
+                                    </div>
+
+                                    <div class="checklist-item" data-item="5">
+                                        <div class="checklist-checkbox">
+                                            <i class="fas fa-check" style="display: none;"></i>
+                                        </div>
+                                        <div>Istirahat yang cukup sebelum berolahraga</div>
+                                    </div>
+
+                                    <div class="checklist-item" data-item="6">
+                                        <div class="checklist-checkbox">
+                                            <i class="fas fa-check" style="display: none;"></i>
+                                        </div>
+                                        <div>Tidak memaksakan diri saat merasa lelah</div>
+                                    </div>
+
+                                    <div class="checklist-item" data-item="7">
+                                        <div class="checklist-checkbox">
+                                            <i class="fas fa-check" style="display: none;"></i>
+                                        </div>
+                                        <div>Konsumsi karbohidrat cukup untuk energi</div>
+                                    </div>
+
+                                    <div class="checklist-item" data-item="8">
+                                        <div class="checklist-checkbox">
+                                            <i class="fas fa-check" style="display: none;"></i>
+                                        </div>
+                                        <div>Merencanakan pendinginan setelah olahraga</div>
+                                    </div>
+
+                                    <div class="checklist-progress">
+                                        <div><strong>Progress Pencegahan: <span id="checklist-percentage">0%</span></strong></div>
+                                        <div class="checklist-bar">
+                                            <div id="checklist-progress-fill" class="checklist-fill"></div>
+                                        </div>
+                                        <div id="checklist-feedback" style="margin-top: 10px; font-weight: 600;">
+                                            Mulai centang item di atas untuk melihat progress Anda!
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -558,13 +830,13 @@
                 <div class="table-of-contents">
                     <div class="toc-title">📚 Daftar Isi</div>
                     <ul class="toc-list">
-                        <li><a href="#klasifikasi-cedera">Klasifikasi Cedera</a></li>
-                        <li><a href="#definisi-cedera" class="subsection-link">Definisi Cedera Olahraga</a></li>
-                        <li><a href="#klasifikasi-waktu" class="subsection-link">Berdasarkan Waktu</a></li>
-                        <li><a href="#klasifikasi-penyebab" class="subsection-link">Berdasarkan Penyebab</a></li>
-                        <li><a href="#klasifikasi-jenis" class="subsection-link">Berdasarkan Jenis</a></li>
+                        <li><a href="#klasifikasi-cedera">🏥 Klasifikasi Cedera</a></li>
+                        <li><a href="#definisi-cedera" class="subsection-link">Definisi Cedera</a></li>
                         <li><a href="#cedera-umum" class="subsection-link">Cedera Umum</a></li>
-                        <li><a href="#pencegahan-cedera">Pencegahan Cedera</a></li>
+                        <li><a href="#visualisasi-cedera">👁️ Visualisasi Cedera</a></li>
+                        <li><a href="#sport-injuries" class="subsection-link">Cedera per Olahraga</a></li>
+                        <li><a href="#severity-assessment" class="subsection-link">Penilaian Tingkat Cedera</a></li>
+                        <li><a href="#pencegahan-cedera">🛡️ Pencegahan Cedera</a></li>
                         <li><a href="#metode-rice" class="subsection-link">Metode RICE</a></li>
                         <li><a href="#cara-pencegahan" class="subsection-link">Cara Pencegahan</a></li>
                         <li><a href="#faktor-penurun-performa" class="subsection-link">Faktor Penurun Performa</a></li>
@@ -577,7 +849,7 @@
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: 0%"></div>
                     </div>
-                    <div class="progress-text">0/2 bagian selesai (0%)</div>
+                    <div class="progress-text">0/3 bagian selesai (0%)</div>
                 </div>
             </aside>
         </div>
