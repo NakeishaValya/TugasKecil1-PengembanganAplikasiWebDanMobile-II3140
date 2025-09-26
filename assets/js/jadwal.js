@@ -1,3 +1,4 @@
+let addEl = document.getElementById('addEl');
 const scheduleData = {
     materi: [
         {
@@ -154,10 +155,7 @@ function initCategoryFilter() {
 }
 
 function navigateToMateri(title) {
-    // Extract materi number from title (e.g., "Materi 01" -> "01")
     const materiNumber = title.replace('Materi ', '').padStart(2, '0');
-    
-    // Navigate to the corresponding materi file 
     window.location.href = `kumpulanMateri/materi${materiNumber}.html`;
 }
 
@@ -210,6 +208,8 @@ function animateOnScroll() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate');
+            } else {
+                entry.target.classList.remove('animate');
             }
         });
     }, {
@@ -253,6 +253,44 @@ document.addEventListener('DOMContentLoaded', () => {
             section.style.display = 'none';
         }
     });
+
+    if (addEl) {
+        // Initialize addEl with hidden state
+        addEl.style.opacity = '0';
+        addEl.style.transform = 'translateY(200px)';
+        addEl.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        addEl.style.pointerEvents = 'none';
+        
+        // Debug: Check if element is found
+        console.log('AddEl element found:', addEl);
+    } else {
+        console.log('AddEl element not found!');
+    }
+
+window.addEventListener('scroll', () => {
+    let scrollY = window.scrollY;
+    let windowHeight = window.innerHeight;
+    let documentHeight = document.documentElement.scrollHeight;
+    let maxScrollHeight = documentHeight - windowHeight;
+    let halfScrollPoint = maxScrollHeight * 0.5;
+    
+    if (addEl) {
+        if (scrollY > halfScrollPoint) {
+            addEl.style.opacity = '0.85';
+            addEl.style.transform = 'translateY(0px)';
+            addEl.style.pointerEvents = 'auto';
+        } else {
+            addEl.style.opacity = '0';
+            addEl.style.transform = 'translateY(200px)';
+            addEl.style.pointerEvents = 'none';
+        }
+        
+        // Debug scroll information
+        console.log(`Scroll: ${scrollY}, Half point: ${halfScrollPoint}, Element visible: ${scrollY > halfScrollPoint}`);
+    }
+    
+    let scrollPercentage = (scrollY / (documentHeight - windowHeight)) * 100;
+});
     
     animateOnScroll();
     updateCurrentTime();

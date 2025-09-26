@@ -245,7 +245,7 @@ header.scrolled .logo {
 }
 
 
-.elLatman #leaf {
+.elLatman #leaf, .addEl {
     position: fixed;
     pointer-events: none;
     bottom: 0;    
@@ -1317,5 +1317,178 @@ input[readonly] {
 .btn-save:hover {
     transform: translateY(-1px);
     box-shadow: 0 5px 15px rgba(38, 68, 93, 0.3);
+}
+
+/* =============== JADWAL PAGE STYLES =============== */
+.jadwal-page {
+    background-image: url('../images/jadwal/bg.png');
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    min-height: 1480px;
+    position: relative;
+}
+
+body.jadwal-page {
+    min-height: 1460px;
+}
+
+.jadwal-container {
+    position: relative;
+    z-index: 1;
+}
+
+.info-box-container {
+    position: relative;
+    z-index: 1;
+}
+
+.jadwal-page .info-box-container,
+.jadwal-page .info-box-container * {
+    color: white !important;
+}
+
+.jadwal-page .current-time-box {
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3) !important;
+}
+
+.jadwal-page .stats-summary-box {
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2) !important;
+}
+
+.jadwal-page .personal-info-box {
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2) !important;
+}
+
+.jadwal-page .info-box-container {
+    margin-top: 120px !important;
+}
+
+.jadwal-page .current-time-box {
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+.jadwal-page .stats-summary-box {
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+.jadwal-page .personal-info-box {
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+.jadwal-page .left-boxes {
+    background: transparent !important;
+}
+
+.jadwal-page .info-header {
+    border-bottom: 2px solid white !important;
+}
+
+.jadwal-page .info-item {
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.jadwal-page .current-time-box,
+.jadwal-page .stats-summary-box,
+.jadwal-page .personal-info-box {
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.jadwal-page .timeline-content {
+    border: 2px solid white !important;
+}
+
+.jadwal-page .timeline-content::before {
+    border-left-color: white !important;
+}
+
+.jadwal-page .timeline-item:nth-child(even) .timeline-content::before {
+    border-right-color: white !important;
+    border-left-color: transparent !important;
+}
+
+.jadwal-page .filter-btn {
+    border: 2px solid white !important;
+    color: white !important;
+}
+
+.jadwal-page .filter-btn.active,
+.jadwal-page .filter-btn:hover {
+    background: white !important;
+    color: #26445d !important;
+    border-color: white !important;
+}
+
+.jadwal-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    z-index: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 1920px) {
+    .jadwal-page {
+        background-size: 100% auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .jadwal-page {
+        background-size: 100% auto;
+        min-height: 2200px;
+    }
+    
+    body.jadwal-page {
+        min-height: 2200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .jadwal-page {
+        background-size: 100% auto;
+        min-height: 3000px;
+    }
+    
+    body.jadwal-page {
+        min-height: 3000px;
+    }
+}
+
+.jadwal-page header.scrolled {
+    background: rgba(28, 40, 51, 0.95) !important;
+    box-shadow: 0 4px 20px rgba(28, 40, 51, 0.4) !important;
+}
+
+.jadwal-page .logo {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.jadwal-page .navbar a {
+    color: #e8f4f8 !important;
+    background: transparent !important;
+    border: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+.jadwal-page .navbar a:hover {
+    background: #26445d !important;
+    color: #ffffff !important;
+    border-color: 26445d !important;
+    transform: translateY(-2px) !important;
+}
+
+.jadwal-page .navbar a.active {
+    background: #26445d !important;
+    font-weight: 700 !important;
 }
 
