@@ -32,7 +32,11 @@
 ![Homepage Screenshot](docs/screenshots/homepage.png)
 *Landing page dengan parallax scrolling dan interactive navigation*
 
-### 📚 **Halaman Materi**
+### �️ **Jadwal Timeline**
+![Jadwal Timeline](docs/screenshots/jadwal-timeline.gif)
+*Visualisasi timeline jadwal kegiatan, quiz, dan tes fisik dengan animasi interaktif dan filter kategori*
+
+### �📚 **Halaman Materi**
 ![Materi Overview](docs/screenshots/materi-overview.png)
 *Overview 6 modul pembelajaran dengan visual cards*
 
