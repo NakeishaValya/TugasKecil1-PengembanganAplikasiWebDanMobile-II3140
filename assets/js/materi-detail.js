@@ -658,4 +658,138 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.rice-step')) {
         initMateri05Functions();
     }
+    
+    // Check if we're on materi06 page by looking for specific elements
+    if (document.querySelector('.violations-box') || 
+        document.querySelector('.field-control') || 
+        document.querySelector('.content-with-field')) {
+        initMateri06Functions();
+    }
 });
+
+// ===== MATERI06.HTML SPECIFIC FUNCTIONS =====
+// Field visualization functionality
+
+const fieldImages = {
+    football: {
+        default: '../../assets/images/materi/field/1.png',
+        violations: '../../assets/images/materi/field/1.png',
+        positions: '../../assets/images/materi/field/2.png',
+        dimensions: '../../assets/images/materi/field/3.png'
+    },
+    volleyball: {
+        default: '../../assets/images/materi/field/4.png',
+        violations: '../../assets/images/materi/field/4.png',
+        positions: '../../assets/images/materi/field/5.png',
+        dimensions: '../../assets/images/materi/field/6.png'
+    },
+    basketball: {
+        default: '../../assets/images/materi/field/7.png',
+        violations: '../../assets/images/materi/field/7.png',
+        positions: '../../assets/images/materi/field/8.png',
+        dimensions: '../../assets/images/materi/field/9.png'
+    }
+};
+
+const fieldDescriptions = {
+    football: {
+        default: 'Lapangan sepak bola standar FIFA dengan rumput alami atau sintetis',
+        violations: 'Area pelanggaran: offside, handball, foul, dan pelanggaran lainnya',
+        positions: 'Posisi pemain dalam formasi 4-3-3 dan 4-4-2',
+        dimensions: 'Ukuran lapangan sepak bola: 100-110m × 64-75m'
+    },
+    volleyball: {
+        default: 'Lapangan bola voli indoor standar dengan net di tengah',
+        violations: 'Pelanggaran: menyentuh net, double hit, carry, foot fault',
+        positions: 'Posisi 6 pemain di setiap sisi lapangan',
+        dimensions: 'Ukuran lapangan bola voli: 18m × 9m dengan net setinggi 2.43m'
+    },
+    basketball: {
+        default: 'Lapangan bola basket indoor dengan dua ring di kedua ujung',
+        violations: 'Pelanggaran: traveling, double dribble, 3-second violation, foul',
+        positions: 'Posisi 5 pemain: Point Guard, Shooting Guard, Small Forward, Power Forward, Center',
+        dimensions: 'Ukuran lapangan bola basket: 28m × 15m dengan ring setinggi 3.05m'
+    }
+};
+
+const violationExplanations = {
+    volleyball: {
+        net: 'Pemain tidak boleh menyentuh net saat bermain bola atau menghalangi lawan.',
+        double: 'Pemain tidak boleh memukul bola dua kali berturut-turut dalam satu kontak.',
+        carry: 'Bola tidak boleh ditahan atau diangkat, harus dipukul dengan gerakan cepat.',
+        foot: 'Pemain tidak boleh menginjak atau melangkahi garis servis saat melakukan servis.',
+        fourhits: 'Setiap tim hanya boleh melakukan maksimal 3 sentuhan sebelum mengembalikan bola.',
+        backrow: 'Pemain belakang tidak boleh menyerang di atas net dari area depan.',
+        service: 'Servis tidak sah jika bola keluar lapangan atau tidak melewati net.',
+        rotation: 'Pemain harus berada di posisi rotasi yang benar saat servis dimulai.'
+    },
+    basketball: {
+        traveling: 'Pemain tidak boleh berjalan atau berlari sambil membawa bola tanpa men-dribble.',
+        doubledribble: 'Pemain tidak boleh men-dribble lagi setelah berhenti men-dribble.',
+        threesecond: 'Pemain penyerang tidak boleh berada di area paint lebih dari 3 detik.',
+        fivesecond: 'Pemain harus melepaskan bola dalam 5 detik saat dijaga ketat.',
+        eightsecond: 'Tim penyerang harus membawa bola ke area lawan dalam 8 detik.',
+        shotclock: 'Tim harus melakukan tembakan dalam 24 detik setelah menguasai bola.',
+        personal: 'Kontak fisik yang tidak diperbolehkan terhadap pemain lawan.',
+        technical: 'Pelanggaran unsportsmanlike conduct atau protes berlebihan kepada wasit.'
+    },
+    football: {
+        offside: 'Pemain tidak boleh berada lebih dekat ke gawang dari pemain belakang terakhir lawan.',
+        handball: 'Pemain lapangan tidak boleh menyentuh bola dengan tangan atau lengan.',
+        foul: 'Pelanggaran fisik seperti menendang, mendorong, atau menjegal pemain lawan.',
+        yellow: 'Kartu peringatan untuk pelanggaran seperti protes atau permainan kasar.',
+        red: 'Pemain dikeluarkan dari permainan karena pelanggaran serius atau kartu kuning kedua.',
+        corner: 'Tendangan sudut diberikan saat bola keluar melewati garis gawang dari tim bertahan.',
+        throwin: 'Lemparan ke dalam diberikan saat bola keluar melewati garis samping.',
+        penalty: 'Tendangan penalti diberikan untuk pelanggaran serius di dalam kotak penalti.'
+    }
+};
+
+function showViolationExplanation(sport, type) {
+    const explanationElement = document.getElementById(`${sport}-explanation`);
+    if (explanationElement && violationExplanations[sport] && violationExplanations[sport][type]) {
+        explanationElement.textContent = violationExplanations[sport][type];
+        explanationElement.classList.remove('default');
+        explanationElement.classList.add('show');
+    }
+}
+
+function hideViolationExplanation(sport) {
+    const explanationElement = document.getElementById(`${sport}-explanation`);
+    if (explanationElement) {
+        explanationElement.textContent = 'Arahkan kursor ke kotak pelanggaran untuk melihat penjelasan';
+        explanationElement.classList.add('default');
+        explanationElement.classList.add('show');
+    }
+}
+
+function showFieldImage(sport, type) {
+    const imageElement = document.getElementById(`${sport}-field-image`);
+    const descriptionElement = document.getElementById(`${sport}-description`);
+    
+    if (imageElement && fieldImages[sport] && fieldImages[sport][type]) {
+        imageElement.src = fieldImages[sport][type];
+        descriptionElement.textContent = fieldDescriptions[sport][type];
+    }
+
+    // Update active control
+    const controls = document.querySelectorAll(`[data-field^="${sport}"]`);
+    controls.forEach(control => {
+        control.classList.remove('active');
+    });
+    
+    if (type === 'default') {
+        const defaultControl = document.querySelector(`[data-field="${sport}-default"]`);
+        if (defaultControl) {
+            defaultControl.classList.add('active');
+        }
+    }
+}
+
+// Initialize materi06 functions
+function initMateri06Functions() {
+    // Initialize default images on page load
+    showFieldImage('football', 'default');
+    showFieldImage('volleyball', 'default');
+    showFieldImage('basketball', 'default');
+}

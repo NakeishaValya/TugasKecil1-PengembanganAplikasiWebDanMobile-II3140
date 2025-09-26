@@ -1,14 +1,14 @@
-// Calendar and Workout Management
 let currentDate = new Date();
 let selectedDate = new Date();
 let progressChart = null;
+let leaf = document.getElementById('leaf');
+let bird = document.getElementById('bird');
 
 const monthNames = [
     "Januari", "Februari", "Maret", "April", "Mei", "Juni",
     "Juli", "Agustus", "September", "Oktober", "November", "Desember"
 ];
 
-// Sample workout data
 let workoutData = [
     {
         id: 1,
@@ -82,7 +82,6 @@ let workoutData = [
     }
 ];
 
-// Fitness test data
 let fitnessTestData = [
     {
         id: 1,
@@ -106,7 +105,6 @@ let fitnessTestData = [
     }
 ];
 
-// DOM Elements
 const currentMonthElement = document.getElementById('currentMonth');
 const calendarDaysElement = document.getElementById('calendarDays');
 const todayDateElement = document.getElementById('todayDate');
@@ -117,7 +115,6 @@ const fitnessTestModal = document.getElementById('fitnessTestModal');
 const fitnessTestForm = document.getElementById('fitnessTestForm');
 const addFitnessTestBtn = document.getElementById('addFitnessTestBtn');
 
-// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeCalendar();
     initializeProgressChart();
@@ -125,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateTodayInfo();
     updateTodayWorkout();
     
-    // Auto-select today's date
     const today = new Date().toISOString().split('T')[0];
     selectDate(today);
 });
@@ -136,7 +132,6 @@ function initializeCalendar() {
 }
 
 function setupEventListeners() {
-    // Calendar navigation
     document.getElementById('prevMonth').addEventListener('click', () => {
         currentDate.setMonth(currentDate.getMonth() - 1);
         renderCalendar();
@@ -149,21 +144,17 @@ function setupEventListeners() {
         updateCurrentMonth();
     });
 
-    // Modal controls
     addWorkoutBtn.addEventListener('click', openModal);
     document.getElementById('closeModal').addEventListener('click', closeModal);
     document.getElementById('cancelBtn').addEventListener('click', closeModal);
     
-    // Fitness test modal controls
     addFitnessTestBtn.addEventListener('click', openFitnessTestModal);
     document.getElementById('closeFitnessTestModal').addEventListener('click', closeFitnessTestModal);
     document.getElementById('cancelFitnessTestBtn').addEventListener('click', closeFitnessTestModal);
     
-    // Form submission
     workoutForm.addEventListener('submit', handleFormSubmit);
     fitnessTestForm.addEventListener('submit', handleFitnessTestSubmit);
 
-    // Progress period buttons
     document.querySelectorAll('.period-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
@@ -172,7 +163,6 @@ function setupEventListeners() {
         });
     });
 
-    // Close modal when clicking outside
     workoutModal.addEventListener('click', (e) => {
         if (e.target === workoutModal) {
             closeModal();
@@ -190,13 +180,11 @@ function renderCalendar() {
     
     let daysHTML = '';
     
-    // Previous month's days
     for (let i = firstDay - 1; i >= 0; i--) {
         const day = daysInPrevMonth - i;
         daysHTML += `<div class="day other-month">${day}</div>`;
     }
     
-    // Current month's days
     for (let day = 1; day <= daysInMonth; day++) {
         const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         const isToday = isDateToday(year, month, day);
@@ -211,7 +199,6 @@ function renderCalendar() {
         daysHTML += `<div class="${classes}" data-date="${dateStr}" onclick="selectDate('${dateStr}')">${day}</div>`;
     }
     
-    // Next month's days
     const totalCells = 42;
     const remainingCells = totalCells - (firstDay + daysInMonth);
     for (let day = 1; day <= remainingCells && remainingCells < 7; day++) {
@@ -246,15 +233,12 @@ function hasWorkoutOnDate(dateStr) {
 function selectDate(dateStr) {
     selectedDate = new Date(dateStr + 'T00:00:00');
     
-    // Remove previous selection
     document.querySelectorAll('.day.selected').forEach(day => {
         day.classList.remove('selected');
     });
     
-    // Add selection to clicked date
     document.querySelector(`[data-date="${dateStr}"]`)?.classList.add('selected');
     
-    // Update "Hari Ini" section with selected date info
     updateSelectedDateInfo(dateStr);
 }
 
@@ -263,10 +247,8 @@ function updateSelectedDateInfo(dateStr) {
     const todayDateElement = document.getElementById('todayDate');
     const todayWorkoutElement = document.getElementById('todayWorkout');
     
-    // Update date display
     todayDateElement.textContent = formatDate(dateStr);
     
-    // Update workout display
     if (workouts.length > 0) {
         let workoutHTML = '';
         workouts.forEach(workout => {
@@ -340,7 +322,6 @@ function formatDate(dateStr) {
     return date.toLocaleDateString('id-ID', options);
 }
 
-// Progress Chart Functions
 function initializeProgressChart() {
     const ctx = document.getElementById('progressChart').getContext('2d');
     
@@ -421,7 +402,6 @@ function updateProgressChart(period) {
     progressChart.update();
 }
 
-// Modal Functions
 function openModal() {
     workoutModal.style.display = 'flex';
     setTimeout(() => {
@@ -429,7 +409,6 @@ function openModal() {
         document.querySelector('.modal-content').style.transform = 'scale(1)';
     }, 10);
     
-    // Set default date to selected date from calendar or today
     const defaultDate = selectedDate || new Date();
     const dateStr = `${defaultDate.getFullYear()}-${String(defaultDate.getMonth() + 1).padStart(2, '0')}-${String(defaultDate.getDate()).padStart(2, '0')}`;
     document.getElementById('workoutDate').value = dateStr;
@@ -466,22 +445,40 @@ function handleFormSubmit(e) {
         type: 'latman'
     };
     
-    // Add to workout data
     workoutData.push(newWorkout);
     workoutData.sort((a, b) => new Date(a.date) - new Date(b.date));
     
-    // Update UI
     renderCalendar();
     updateTodayWorkout();
     closeModal();
     
-    // Show success message
     setTimeout(() => {
         alert(`✅ Latman Ke-${newWorkout.session} berhasil ditambahkan pada ${formatDate(newWorkout.date)}`);
     }, 500);
 }
 
-// Keyboard shortcuts
+window.addEventListener('scroll', () => {
+    let scrollY = window.scrollY;
+    let windowHeight = window.innerHeight;
+    let documentHeight = document.documentElement.scrollHeight;
+    
+    leaf.style.transform = `translateY(${scrollY * 0.3}px)`;
+    bird.style.transform = `translateY(${scrollY * -0.7}px)`;
+    
+    let scrollPercentage = (scrollY / (documentHeight - windowHeight)) * 100;
+    
+    if (cloud) {
+        if (scrollPercentage > 70) {
+            let opacity = Math.min((scrollPercentage - 70) / 30, 1);
+            bird.style.opacity = opacity;
+            bird.style.transform = `translateY(${(1 - opacity) * 50}px)`;
+        } else {
+            bird.style.opacity = '0';
+            bird.style.transform = 'translateY(50px)';
+        }
+    }
+});
+
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         if (workoutModal.style.display === 'flex') {
@@ -503,9 +500,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Fitness Test Modal Functions
 function openFitnessTestModal() {
-    // Set default date to today
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('testDate').value = today;
     
@@ -531,7 +526,6 @@ function handleFitnessTestSubmit(e) {
     
     const testType = document.getElementById('testType').value;
     
-    // Collect basic data
     const newTest = {
         id: fitnessTestData.length + 1,
         studentName: document.getElementById('studentName').value,
@@ -550,7 +544,6 @@ function handleFitnessTestSubmit(e) {
         rpeScore: parseInt(document.getElementById('rpeScore').value)
     };
     
-    // Add test-specific data
     if (testType === 'kebugaran-awal' || testType === 'endurance-training' || testType === 'strength-training') {
         newTest.batteryTest = {
             pushUp: parseInt(document.getElementById('pushUpCount').value) || 0,
@@ -577,15 +570,12 @@ function handleFitnessTestSubmit(e) {
         };
     }
     
-    // Add to fitness test data
     fitnessTestData.push(newTest);
     fitnessTestData.sort((a, b) => new Date(a.date) - new Date(b.date));
     
-    // Update UI
     renderCalendar();
     closeFitnessTestModal();
     
-    // Show success message
     setTimeout(() => {
         alert(`✅ Hasil "${getTestTypeLabel(newTest.type)}" berhasil disimpan untuk ${newTest.studentName}`);
     }, 500);
@@ -601,19 +591,16 @@ function getTestTypeLabel(type) {
     return testTypes[type] || type;
 }
 
-// Toggle test sections based on selected test type
 function toggleTestSections() {
     const testType = document.getElementById('testType').value;
     const batterySection = document.getElementById('batteryTestSection');
     const cooperSection = document.getElementById('cooperTestSection');
     const intervalSection = document.getElementById('intervalTestSection');
     
-    // Hide all sections first
     batterySection.style.display = 'none';
     cooperSection.style.display = 'none';
     intervalSection.style.display = 'none';
     
-    // Show relevant sections based on test type
     if (testType === 'kebugaran-awal' || testType === 'endurance-training' || testType === 'strength-training') {
         batterySection.style.display = 'block';
         cooperSection.style.display = 'block';
@@ -622,13 +609,9 @@ function toggleTestSections() {
     }
 }
 
-// Make function globally available
 window.toggleTestSections = toggleTestSections;
-
-// Auto-refresh today info every minute
 setInterval(updateTodayInfo, 60000);
 
-// Export for global access
 window.LatmanApp = {
     workoutData,
     fitnessTestData,
