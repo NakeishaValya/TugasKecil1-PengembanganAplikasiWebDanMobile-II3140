@@ -1398,30 +1398,6 @@ body.jadwal-page {
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
-.jadwal-page .timeline-content {
-    border: 2px solid white !important;
-}
-
-.jadwal-page .timeline-content::before {
-    border-left-color: white !important;
-}
-
-.jadwal-page .timeline-item:nth-child(even) .timeline-content::before {
-    border-right-color: white !important;
-    border-left-color: transparent !important;
-}
-
-.jadwal-page .filter-btn {
-    border: 2px solid white !important;
-    color: white !important;
-}
-
-.jadwal-page .filter-btn.active,
-.jadwal-page .filter-btn:hover {
-    background: white !important;
-    color: #26445d !important;
-    border-color: white !important;
-}
 
 .jadwal-page::before {
     content: '';
@@ -1482,7 +1458,6 @@ body.jadwal-page {
 
 .jadwal-page .navbar a:hover {
     background: #26445d !important;
-    color: #ffffff !important;
     border-color: 26445d !important;
     transform: translateY(-2px) !important;
 }
