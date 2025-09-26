@@ -92,21 +92,24 @@ function generateTimeline() {
         scheduleData[category].forEach(item => {
             const timelineItem = document.createElement('div');
             timelineItem.className = 'timeline-item';
-            const isMateriItem = category === 'materi' && item.title.includes('Materi');
-            const detailAction = isMateriItem 
-                ? `onclick="navigateToMateri('${item.title}')"`
-                : `onclick="showDetailModal('${item.title}', '${item.description}', '${item.location}', '${item.time}')"`;
-            
+            let detailButton = '';
+            if (category === 'materi') {
+                detailButton = `<a href=\"materi.html\" class=\"btn\">Detail</a>`;
+            } else if (category === 'tes-fisik') {
+                detailButton = `<a href=\"latman.html\" class=\"btn\">Detail</a>`;
+            } else if (category === 'ujian') {
+                detailButton = `<a href=\"#\" class=\"btn disabled\" style=\"pointer-events:none;opacity:0.6;\">Detail</a>`;
+            }
             timelineItem.innerHTML = `
-                <div class="timeline-icon">
-                    <i class="fas fa-book"></i>
+                <div class=\"timeline-icon\">
+                    <i class=\"fas fa-book\"></i>
                 </div>
-                <div class="timeline-content">
-                    <div class="timeline-time">${item.time}</div>
+                <div class=\"timeline-content\">
+                    <div class=\"timeline-time\">${item.time}</div>
                     <h2>${item.title}</h2>
                     <p><strong>${item.location}</strong></p>
                     <p>${item.description}</p>
-                    <a href="#" class="btn" ${detailAction}>Detail</a>
+                    ${detailButton}
                 </div>
             `;
             timeline.appendChild(timelineItem);
