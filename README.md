@@ -6,7 +6,7 @@
 
 **Platform Pembelajaran Olahraga Interaktif untuk Mata Kuliah KU1001**
 
-[![Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel)](https://your-vercel-url.vercel.app)
+[![Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel)](https://tugas-kecil1-pengembangan-aplikasi.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/NakeishaValya/TugasKecil1-PengembanganAplikasiWebDanMobile-II3140)
 
 </div>
@@ -129,28 +129,10 @@ Link Deployment : [Disini](https://tugas-kecil1-pengembangan-aplikasi.vercel.app
 ### **Development & Deployment**
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-## �🛠️ **Teknologi yang Digunakan**
-### **Frontend Stack**
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
-### **Libraries & APIs**
-![FontAwesome](https://img.shields.io/badge/Font%20Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)
-![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
-![Google Fonts](https://img.shields.io/badge/Google%20Fonts-4285F4?style=for-the-badge&logo=googlefonts&logoColor=white)
-
-### **Development & Deployment**
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
 
 ---
 
 **II3140 - Pengembangan Aplikasi Web dan Mobile**
 
-**II3140 - Pengembangan Aplikasi Web dan Mobile**
-
-**II3140 - Pengembangan Aplikasi Web dan Mobile**
 *© 2025 Athlearn: Interactive Sport. All rights reserved.*
