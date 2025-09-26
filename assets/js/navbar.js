@@ -36,7 +36,52 @@ function setActiveNavigation() {
     });
 }
 
+function initProfileDropdown() {
+    const profileIcon = document.getElementById('profileIcon');
+    const profileDropdown = document.getElementById('profileDropdown');
+    
+    if (profileIcon && profileDropdown) {
+        profileIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!profileIcon.contains(e.target) && !profileDropdown.contains(e.target)) {
+                profileDropdown.classList.remove('show');
+            }
+        });
+        
+        // Handle profile menu items
+        const profileItems = profileDropdown.querySelectorAll('.profile-item');
+        profileItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const text = item.querySelector('span').textContent;
+                
+                if (text === 'Keluar') {
+                    if (confirm('Apakah Anda yakin ingin keluar?')) {
+                        // Handle logout
+                        console.log('Logging out...');
+                        profileDropdown.classList.remove('show');
+                    }
+                } else if (text === 'Profil Saya') {
+                    // Handle profile view
+                    console.log('Opening profile...');
+                    profileDropdown.classList.remove('show');
+                } else if (text === 'Pengaturan') {
+                    // Handle settings
+                    console.log('Opening settings...');
+                    profileDropdown.classList.remove('show');
+                }
+            });
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     setActiveNavigation();
+    initProfileDropdown();
 });
