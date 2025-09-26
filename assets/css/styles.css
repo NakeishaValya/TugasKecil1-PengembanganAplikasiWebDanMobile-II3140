@@ -190,14 +190,20 @@ header.hidden {
 }
 
 .logo {
-    font-size: 2em;
-    color: #26445d;
+    display: flex;
+    align-items: center;
     pointer-events: none;
-    transition: font-size 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-header.scrolled .logo {
-    font-size: 1.8em;
+.logo img {
+    height: 50px;
+    width: auto;
+    transition: height 0.3s ease;
+}
+
+header.scrolled .logo img {
+    height: 40px;
 }
 
 .navbar {
@@ -1568,9 +1574,8 @@ body.jadwal-page {
     box-shadow: 0 4px 20px rgba(28, 40, 51, 0.4) !important;
 }
 
-.jadwal-page .logo {
-    color: #ffffff !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+.jadwal-page .logo img {
+    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
 }
 
 .jadwal-page .navbar a {
